@@ -1,5 +1,5 @@
 import { Device } from "../../../models/device/device.types"
-import { AuthErrorResponseData, AuthSuccessResponseData } from "../endpoints.types"
+import { ErrorResponseData, AuthSuccessResponseData } from "../endpoints.types"
 
 export interface SignInRequestData {
   username: string
@@ -11,7 +11,7 @@ export type SignInSuccessResponseData = AuthSuccessResponseData & {
   headers: LoginResponseHeaders
 }
 
-export type SignInErrorResponseData = AuthErrorResponseData & {
+export type SignInErrorResponseData = ErrorResponseData & {
   success: false
 }
 

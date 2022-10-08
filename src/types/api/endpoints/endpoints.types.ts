@@ -3,12 +3,7 @@ import { CookieJar } from "../../../utils/api/extractCookieFromCookieJar"
 import User from "../../models/user/User.types"
 import { State } from "../core/state.types"
 
-type AuthButton = {
-  action: string,
-  title: string
-}
-
-export interface AuthErrorResponseData {
+export interface ErrorResponseData {
   buttons: AuthButton[]
   error_title: string
   error_type: string
@@ -20,6 +15,11 @@ export interface AuthErrorResponseData {
   cookieJar: CookieJar
   bloksVersionId: string
   pigeonSessionId: string
+}
+
+type AuthButton = {
+  action: string,
+  title: string
 }
 
 export interface AuthSuccessResponseData {
