@@ -21,7 +21,7 @@ const useCurrentUser = () => {
           setProfile(data as User)(dispatch);
       },
       enabled: Boolean(inStoreSecrets),
-      staleTime: 1000 // prevent re-fetch when multiple currentUser queries are made during this time window (in ms)
+      staleTime: 5000 // prevent re-fetch when multiple currentUser queries are made during this time window (in ms)
   });
 
   const { data, ...useQueryResultRest } = useQueryResult;

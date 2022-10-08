@@ -55,7 +55,7 @@ export const transformSecretsToHeaders = (secrets: Secrets) =>
   Object.entries(HEADERS_TO_SECRETS_KEYS).reduce(
     (acc, [headerKey, secretKey]) => ({
       ...acc,
-      [headerKey.replace('ig-set-', '')]: secrets[secretKey as keyof Secrets]
+      [headerKey.replace(secretKey === 'igWWWClaim' ? 'set-' : 'ig-set-', '')]: secrets[secretKey as keyof Secrets]
     }),
     {} as HEADERS
   );

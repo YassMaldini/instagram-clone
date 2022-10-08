@@ -3,6 +3,7 @@ import { APP_VERSION_CODE, BLOKS_VERSION_ID } from "instagram-private-api/dist/c
 import { random } from "lodash"
 import { useCallback, useEffect, useMemo } from "react"
 import { useQueryClient } from "react-query"
+import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { signOut } from "../../store/authentication/authenticationActions/authenticationActions"
 import { deviceSelector, secretsSelector } from "../../store/authentication/authenticationReducerSelectors"
@@ -16,6 +17,7 @@ export const useConfigureApi = () => {
   const secrets = useSelector(secretsSelector);
   const device = useSelector(deviceSelector);
   const queryClient = useQueryClient();
+  const dispatch = useDispatch();
 
   const language = 'fr_FR';
   const capabilitiesHeader = '3brTvwE=';
@@ -30,6 +32,7 @@ export const useConfigureApi = () => {
           'Detected 403 status code... Request url was:',
           response.config?.url
         );
+        signOut(queryClient)(dispatch)
         // (async () => {
         //     await queryClient.invalidateQueries(USE_VALIDATE_TOKEN_QUERY_KEY);
         // })();
@@ -91,7 +94,7 @@ export const useConfigureApi = () => {
       });
     }
     // Secrets got deleted. → Remove headers.
-    else if (api.headers['access-token']) {
+    else {
       console.log(PREFIX, 'Removing secrets headers...');
       Object.keys(api.headers).forEach((headerKey) => {
         api.deleteHeader(headerKey);
