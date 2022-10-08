@@ -12,7 +12,8 @@ const authenticationReducer: Reducer<AuthenticationReducerState, AuthenticationR
       return {
         ...state,
         profile: action.profile,
-        secrets: action.secrets
+        secrets: action.secrets,
+        device: action.device
       };
     }
 

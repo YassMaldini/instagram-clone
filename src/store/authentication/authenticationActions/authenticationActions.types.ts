@@ -15,6 +15,7 @@ export interface SetAuthenticationInfosAction extends Action {
     type: typeof SET_AUTHENTICATION_INFOS;
     profile: User | null;
     secrets: Secrets | null;
+    device: Device | null;
 }
 
 export interface SetProfileAction extends Action {

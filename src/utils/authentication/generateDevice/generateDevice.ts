@@ -1,5 +1,5 @@
-import * as builds from '../../api/samples/builds.json'
-import * as devices from '../../api/samples/devices.json'
+import builds from '../../api/samples/builds.json'
+import devices from '../../api/samples/devices.json'
 import { Chance } from 'chance';
 
 const generateDevice = (seed: string) => {
