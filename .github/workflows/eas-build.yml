@@ -33,5 +33,5 @@ jobs:
         run: git config --global user.email "yass.maldini@gmail.com"
 
       - name: Build on EAS
-        run: eas build --platform android --non-interactive
+        run: eas build --platform android --profile development --non-interactive
         # run: eas build --platform all --non-interactive
