@@ -3,7 +3,10 @@ export enum StaticPostEndpoints {
   SignIn = '/auth/sign_in',
 
   // Account
-  QeSync = '/api/v1/qe/sync/'
+  QeSync = '/api/v1/qe/sync/',
+
+  // Feed
+  TimelineFeed = '/api/v1/feed/timeline/'
 }
 
 export enum StaticGetEndpoints {

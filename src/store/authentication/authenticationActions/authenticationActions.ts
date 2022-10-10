@@ -12,6 +12,8 @@ import { getCookie, transformHeadersToSecrets } from "../../../utils/authenticat
 import { HEADERS } from "apisauce";
 import generateDevice from "../../../utils/authentication/generateDevice/generateDevice";
 import api from "../../../utils/api/api";
+import { random } from "lodash";
+import { BLOKS_VERSION_ID } from "instagram-private-api/dist/core/constants";
 
 export const setProfile = (profile: User) => (dispatch: Dispatch) => {
   dispatch<SetProfileAction>({
@@ -61,13 +63,13 @@ export const signInWithUsernameAndPassword =
       throw json
     }
 
-    console.log("headers", headers)
+    console.log("login headers", headers)
 
     const secrets = transformHeadersToSecrets(headers as HEADERS);
     const profile = (json as AuthSuccessResponseData).logged_in_user;
     dispatch<SetAuthenticationInfosAction>({
         type: SET_AUTHENTICATION_INFOS,
-        profile,
+        profile: null,
         secrets,
         device
     });

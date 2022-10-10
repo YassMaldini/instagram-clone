@@ -1,18 +1,22 @@
+import { useMemo } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useIsSignedIn from "../../../hooks/auth/useIsSignedIn/useIsSignedIn";
-import { useConfigureApi } from "../../../hooks/useConfigureApi/useConfigureApi"
-import SignIn from "../../screens/authentication/SignIn/SignIn"
+import { useConfigureApi } from "../../../hooks/useConfigureApi/useConfigureApi";
+import getRootStackScreens from "./getRootStackScreens/getRootStackScreens";
 
 const RootStack = () => {
   useConfigureApi();
 
   const isSignedIn = useIsSignedIn();
 
-  console.log('isSignedIn', isSignedIn)
+  const screens = useMemo(
+    () => getRootStackScreens({ isSignedIn }),
+    [isSignedIn]
+  )
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <SignIn />
+    <SafeAreaView style={{ flex: 1 }}>
+      {screens}
     </SafeAreaView>
   )
 }

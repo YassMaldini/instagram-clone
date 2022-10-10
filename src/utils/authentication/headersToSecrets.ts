@@ -26,7 +26,7 @@ import { Secrets } from "../../types/models/authentication/secrets.types";
 //   'Authorization': 'authorization'
 // })
 
-export const getCookie = ({ cookies, cookieName }: { cookies: string, cookieName: string }) => {
+export const getCookie = ({ cookies, cookieName }: { cookies: string, cookieName: string }): string => {
   let cookie: any = {};
   cookies.split(',').forEach((el: string) => {
     let [key,value] = el.split('=');
@@ -36,17 +36,24 @@ export const getCookie = ({ cookies, cookieName }: { cookies: string, cookieName
 }
 
 export const HEADERS_TO_SECRETS_KEYS = Object.freeze({
-  // 'ig-set-authorization': 'authorization',
+  'ig-set-authorization': 'authorization',
   'ig-set-x-mid': 'mid',
   'x-ig-set-www-claim': 'igWWWClaim',
-  'x-ig-set-pigeon-session-id': 'pigeonSessionId'
+  'x-ig-set-pigeon-session-id': 'pigeonSessionId',
+  'x-ig-set-client-session-id': 'clientSessionId',
+  // 'x-ig-set-csrftoken': 'cookieCsrfToken',
+  // 'x-ig-set-sessionid': 'sessionid',
+  'ig-set-ig-u-shbid': 'shbid',
+  'ig-set-ig-u-shbts': 'shbts',
+  'ig-set-ig-u-ds-user-id': 'ds_user_id',
+  'ig-set-ig-u-rur': 'rur'
 })
 
 export const transformHeadersToSecrets = (headers: HEADERS) =>
   Object.entries(HEADERS_TO_SECRETS_KEYS).reduce(
     (acc, [headerKey, secretKey]) => ({
       ...acc,
-      [secretKey]: headers?.[headerKey] || getCookie({cookies: headers['set-cookie'][0], cookieName: secretKey})
+      [secretKey]: headers?.[headerKey]
     }),
     {} as Secrets
   );
