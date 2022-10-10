@@ -19,10 +19,12 @@ import { random } from "lodash";
 import { APP_VERSION_CODE, BLOKS_VERSION_ID } from "instagram-private-api/dist/core/constants";
 import HomeIcon from './home.svg';
 import { SvgIcon } from "../../../designSystem/SvgIcon/SvgIcon";
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
+  const { t } = useTranslation('authentication')
 
   const secrets = useSelector(secretsSelector) as Secrets;
   const device = useSelector(deviceSelector) as Device;
@@ -161,6 +163,7 @@ const Home = () => {
           console.log(e)
         }
       }} /> */}
+      <Text>{t("form.placeholder.username")}</Text>
     </View>
   )
 }

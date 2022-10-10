@@ -8,6 +8,8 @@ import Navigation from './src/components/navigation/Navigation';
 import configureStore from './src/store/configureStore';
 import getTheme from './src/utils/theme/theme';
 
+import './src/utils/i18n/i18n';
+
 const App = () => {
 
   const { store, persistor } = configureStore();

@@ -26,7 +26,7 @@ const ConnectedBottomTab = () => {
             <Text color='primaryBackground'>Home</Text>
           ),
           tabBarIcon: ({ focused }) => (
-            <SvgIcon width={28} height={28} icon={HomeIcon} {...{ focused }} />
+            <SvgIcon color='primaryBackground' width={28} height={28} icon={HomeIcon} />
           )
         }}
       />
