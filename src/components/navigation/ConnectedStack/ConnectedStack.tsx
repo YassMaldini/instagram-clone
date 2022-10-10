@@ -1,5 +1,6 @@
 import { Platform } from 'react-native';
 import Home from '../../screens/connected/Home/Home';
+import ConnectedBottomTab from '../ConnectedBottomTab/ConnectedBottomTab';
 import { Navigator, Screen } from './ConnectedStack.navigator';
 
 const ConnectedStack = () => {
@@ -11,7 +12,8 @@ const ConnectedStack = () => {
               animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default'
           }}
       >
-          <Screen name="Home" component={Home} />
+        <Screen name="ConnectedBottomTab" component={ConnectedBottomTab} />
+        {/* <Screen name="Home" component={Home} /> */}
       </Navigator>
   );
 };

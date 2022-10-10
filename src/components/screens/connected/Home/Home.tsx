@@ -17,6 +17,8 @@ import qs from "qs";
 import axios from "axios";
 import { random } from "lodash";
 import { APP_VERSION_CODE, BLOKS_VERSION_ID } from "instagram-private-api/dist/core/constants";
+import HomeIcon from './home.svg';
+import { SvgIcon } from "../../../designSystem/SvgIcon/SvgIcon";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,11 +28,11 @@ const Home = () => {
   const device = useSelector(deviceSelector) as Device;
   const profile = useSelector(profileSelector) as CurrentUserSuccessResponseData;
 
-  const { 
-    data: timelineFeed
-  } = useTimelineFeed();
+  // const { 
+  //   data: timelineFeed
+  // } = useTimelineFeed();
 
-  useEffect(() => console.log(timelineFeed), [timelineFeed])
+  // useEffect(() => console.log(timelineFeed), [timelineFeed])
 
   const language = 'fr_FR'
   const capabilitiesHeader = '3brTv10='
@@ -92,6 +94,7 @@ const Home = () => {
     <View style={{ backgroundColor: 'red' }}>
       <Text>Home</Text>
       <Button title="signOut" onPress={async () => signOut(queryClient)(dispatch)} />
+      <SvgIcon icon={HomeIcon} width={55} height={55} marginTop="l" color='primaryText' />
       <Button title="secrets" onPress={async () => console.log(secrets)} />
       <Button title="timeline" onPress={async () => {
 
