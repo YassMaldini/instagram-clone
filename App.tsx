@@ -1,6 +1,5 @@
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { ThemeProvider } from '@shopify/restyle';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -18,19 +17,17 @@ const App = () => {
   const theme = getTheme();
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider {...{ theme }}>
-        <StoreProvider {...{ store }}>
-          <PersistGate {...{ persistor }}>
-            <QueryClientProvider client={queryClient}>
-              <BottomSheetModalProvider>
-                <Navigation />
-              </BottomSheetModalProvider>
-            </QueryClientProvider>
-          </PersistGate>
-        </StoreProvider>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <ThemeProvider {...{ theme }}>
+      <StoreProvider {...{ store }}>
+        <PersistGate {...{ persistor }}>
+          <QueryClientProvider client={queryClient}>
+            <BottomSheetModalProvider>
+              <Navigation />
+            </BottomSheetModalProvider>
+          </QueryClientProvider>
+        </PersistGate>
+      </StoreProvider>
+    </ThemeProvider>
   );
 }
 

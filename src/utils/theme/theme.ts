@@ -14,7 +14,16 @@ const getTheme = () => (
       mToL: 20,
       l: 24,
       xl: 48,
-      xxl: 86
+      xxl: 86,
+      xxxl: 112
+    },
+    borderRadii: {
+      none: 0,
+      xxs: 2,
+      xs: 4,
+      s: 8,
+      m: 16,
+      l: 40
     },
     breakpoints: {
       phone: 0,
@@ -23,7 +32,8 @@ const getTheme = () => (
     },
     textVariants: {
       defaults: {
-        color: "primaryText"
+        color: "primaryText",
+        fontFamily: "Roboto-Regular"
       },
       title: {
         fontWeight: 800,
