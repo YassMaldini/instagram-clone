@@ -5,7 +5,6 @@ import CardHeader from "./CardHeader/CardHeader"
 import CardActions from "./CardActions/CardActions"
 import CardDescription from "./CardDescription/CardDescription"
 import Pressable from "../../designSystem/Pressable/Pressable"
-import CardComments from "./CardComments/CardComments"
 import Image from "../../designSystem/Image/Image"
 import AutoHeightImage from "../../designSystem/AutoHeightImage/AutoHeightImage"
 import { StyleSheet, View } from "react-native"
@@ -13,7 +12,7 @@ import { KeyboardAccessoryView } from "react-native-keyboard-accessory"
 import TextInput from "../../designSystem/TextInput/TextInput"
 import { CardProps } from "./Card.types"
 
-const Card = ({ textInputRef }: CardProps) => {
+const Card = ({}: CardProps) => {
   return (
     <Box flex={1} backgroundColor="primaryBackground">
       <CardHeader />
@@ -26,7 +25,7 @@ const Card = ({ textInputRef }: CardProps) => {
       <Pressable>
         <Text marginLeft="m" color="secondaryText">Voir les 123 commentaires</Text>
       </Pressable>
-      <CardComments {...{ textInputRef }} />
+      <Text marginLeft="m" color="secondaryText" fontSize={12}>Il y'a 2 jours</Text>
     </Box>
   )
 }

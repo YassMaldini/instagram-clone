@@ -19,36 +19,16 @@ const DATA = [
 ];
 
 const HomeContent = () => {
-  const textInputRef = useRef<TNTextInput>(null);
-
   return (
-    <>
     <FlashList
       data={DATA}
       renderItem={({ item }) => (
         <Box flex={1}>
-          <Card {...{ textInputRef }} />
+          <Card />
         </Box>
       )}
       estimatedItemSize={20}
     />
-    <KeyboardAccessoryView style={{backgroundColor: 'black'}} alwaysVisible={true} inSafeAreaView={true} androidAdjustResize>
-      {({ isKeyboardVisible }) => (
-        <Box backgroundColor="secondaryBackground" visible={isKeyboardVisible}>
-          <Box flexDirection="row">
-            <Image source={ronaldinho} width={32} height={32} borderRadius='l' marginRight="m" />
-            <TextInput
-              ref={textInputRef}
-              placeholder="Write your message"
-              underlineColorAndroid="transparent"
-              color="primaryText"
-              backgroundColor="secondaryBackground"
-            />
-          </Box>
-        </Box>
-      )}
-    </KeyboardAccessoryView>
-    </>
   )
 }
 
