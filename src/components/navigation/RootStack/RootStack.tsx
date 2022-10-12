@@ -6,6 +6,9 @@ import getRootStackScreens from "./getRootStackScreens/getRootStackScreens";
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import Text from "../../designSystem/Text/Text";
+import { KeyboardAccessoryView } from 'react-native-keyboard-accessory';
+import { View } from "react-native";
+import TextInput from "../../designSystem/TextInput/TextInput";
 
 const RootStack = () => {
   useConfigureApi();

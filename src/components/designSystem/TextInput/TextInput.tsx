@@ -1,4 +1,3 @@
-import { BottomSheetTextInput } from "@gorhom/bottom-sheet";
 import { backgroundColor, BackgroundColorProps, border, BorderProps, color, ColorProps, composeRestyleFunctions, createRestyleComponent, layout, LayoutProps, spacing, SpacingProps, useRestyle } from "@shopify/restyle";
 import { forwardRef, useMemo } from "react";
 import { Platform } from "react-native";
@@ -9,7 +8,7 @@ import { Theme } from "../../../utils/theme/theme";
 type RestyleProps = SpacingProps<Theme> & LayoutProps<Theme> & BorderProps<Theme> & BackgroundColorProps<Theme> & ColorProps<Theme>
 
 const TextInput = forwardRef<any, TextInputprops>(
-  ({ isInBottomModal, style: receivedStyle, multiline, ...rest }, ref) => {
+  ({ style: receivedStyle, multiline, ...rest }, ref) => {
     const restyleFunctions = composeRestyleFunctions<Theme, RestyleProps>([
       spacing,
       layout,
@@ -22,17 +21,11 @@ const TextInput = forwardRef<any, TextInputprops>(
     const rootProps = useRestyle(restyleFunctions, rest)
 
     const Component = useMemo(() => {
-      if (isInBottomModal && Platform.OS === 'ios') {
-        return createRestyleComponent<RestyleProps, Theme>(
-          [spacing, layout, border, backgroundColor, color],
-          BottomSheetTextInput
-        )
-      }
       return createRestyleComponent<RestyleProps, Theme>(
         [spacing, layout, border, backgroundColor, color],
         RNTextInput
       )
-    }, [isInBottomModal])
+    }, [])
 
     return (
       // <Component 
@@ -49,10 +42,10 @@ const TextInput = forwardRef<any, TextInputprops>(
       //   {...{ ref }}
       // />
       <Component
-        {...rootProps}
         paddingVertical="sToM"
         paddingHorizontal="m"
         borderRadius="s"
+        {...rootProps}
         {...{ ref }}
       />
     )

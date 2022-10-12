@@ -5,7 +5,7 @@ import { Theme } from '../../../utils/theme/theme';
 import Box from '../Box/Box';
 import { SvgIconProps } from './SvgIcon.types';
 
-export const DEFAULT_SVG_ICON_SIZE = 14;
+export const DEFAULT_SVG_ICON_SIZE = 24;
 
 export type RestyleProps = ColorProps<Theme> & SpacingProps<Theme> & LayoutProps<Theme> & OpacityProps<Theme>
 

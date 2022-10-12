@@ -17,6 +17,19 @@ const getTheme = () => (
       xxl: 86,
       xxxl: 112
     },
+    layout: {
+      none: 0,
+      xxs: 2,
+      xs: 4,
+      s: 8,
+      sToM: 12,
+      m: 16,
+      mToL: 20,
+      l: 24,
+      xl: 48,
+      xxl: 86,
+      xxxl: 112
+    },
     borderRadii: {
       none: 0,
       xxs: 2,

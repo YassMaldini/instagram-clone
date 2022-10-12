@@ -4,8 +4,12 @@ import Text from '../../designSystem/Text/Text';
 import { SvgIcon } from '../../designSystem/SvgIcon/SvgIcon';
 import HomeIcon from '../../../../assets/vectors/home.svg'
 import { View } from 'react-native';
+import { useTheme } from '@shopify/restyle';
+import { Theme } from '../../../utils/theme/theme';
 
 const ConnectedBottomTab = () => {
+  const theme = useTheme<Theme>();
+
   return (
     <Navigator
       screenOptions={{
@@ -14,7 +18,8 @@ const ConnectedBottomTab = () => {
         tabBarStyle: {
           elevation: 0,
           borderTopWidth: 1,
-          borderTopColor: 'rgba(0, 0, 0, .04)'
+          borderTopColor: 'rgba(0, 0, 0, .04)',
+          backgroundColor: theme.colors.primaryBackground
         }
       }}
     >
@@ -22,11 +27,9 @@ const ConnectedBottomTab = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: ({ focused }) => (
-            <Text color='primaryBackground'>Home</Text>
-          ),
+          tabBarLabel: () => null,
           tabBarIcon: ({ focused }) => (
-            <SvgIcon color='primaryBackground' width={28} height={28} icon={HomeIcon} />
+            <SvgIcon color='primaryText' width={28} height={28} icon={HomeIcon} />
           )
         }}
       />
