@@ -6,7 +6,6 @@ import Box from "../../../designSystem/Box/Box"
 import Image from "../../../designSystem/Image/Image"
 import Pressable from "../../../designSystem/Pressable/Pressable"
 import Text from "../../../designSystem/Text/Text"
-import { FeedCardHeaderProps } from "../FeedCardHeader/FeedCardHeader.types"
 import FeedCardModalColumnButton from "./FeedCardModalColumnButton/FeedCardModalColumnButton"
 
 import ShareImage from "../../../../../assets/images/share.png"
@@ -21,8 +20,8 @@ import ReportImage from "../../../../../assets/images/instagram_report_red_outli
 import FeedCardModalRowButton from "./FeedCardModalRowButton/FeedCardModalRowButton"
 import { Platform } from "react-native"
 
-const FeedCardModal = forwardRef<any, FeedCardHeaderProps>(
-  (user, ref) => {
+const FeedCardModal = forwardRef<any, any>(
+  (rest, ref) => {
     const theme = useTheme<Theme>()
 
     const initialSnapPoints = useMemo(() => ['CONTENT_HEIGHT'], []);

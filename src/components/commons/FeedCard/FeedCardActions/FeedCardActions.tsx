@@ -24,8 +24,8 @@ import { FeedCardContext } from "../FeedCard.context"
 import { useTheme } from "@shopify/restyle"
 import { Theme } from "../../../../utils/theme/theme"
 
-const FeedCardActions = (timelineFeed: FeedCardProps) => {
-  const { activeIndex, setActiveIndex } = useContext(FeedCardContext);
+const FeedCardActions = () => {
+  const { timelineFeedItem, activeIndex } = useContext(FeedCardContext);
   const theme = useTheme<Theme>();
 
   const DEFAULT_SVG_ICON_SIZE = 24
@@ -34,7 +34,7 @@ const FeedCardActions = (timelineFeed: FeedCardProps) => {
   const device = useSelector(deviceSelector) as Device
   const profile = useSelector(profileSelector) as AccountRepositoryLoginResponseLogged_in_user
 
-  const { id: mediaId, has_liked } = timelineFeed
+  const { id: mediaId, has_liked } = timelineFeedItem
 
   const [hasLiked, setHasLiked] = useState(has_liked);
   const [isSaved, setIsSaved] = useState(false);
@@ -137,10 +137,10 @@ const FeedCardActions = (timelineFeed: FeedCardProps) => {
             />
           </Pressable>
         </Box>
-        {timelineFeed.media_type === 8 && timelineFeed.carousel_media && 
+        {timelineFeedItem.media_type === 8 && timelineFeedItem.carousel_media && 
           <Box flexDirection="row" alignItems="center" alignSelf="center">
           {
-            timelineFeed.carousel_media.map((item, index) => (
+            timelineFeedItem.carousel_media.map((item, index) => (
               <Box 
                 width={6} 
                 height={6} 
@@ -182,7 +182,7 @@ const FeedCardActions = (timelineFeed: FeedCardProps) => {
       </Box>
       <Pressable>
         <Text marginLeft="m" fontWeight="800">
-          {timelineFeed.like_count && thousandFormatter(!hasLiked ? timelineFeed.like_count : timelineFeed.like_count + 1)} J'aime
+          {timelineFeedItem.like_count && thousandFormatter(!hasLiked ? timelineFeedItem.like_count : timelineFeedItem.like_count + 1)} J'aime
           </Text>
       </Pressable>
     </Box>

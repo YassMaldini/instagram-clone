@@ -1,20 +1,16 @@
 import Box from "../../../designSystem/Box/Box"
 import Image from "../../../designSystem/Image/Image"
-import ronaldinho from "../../../.././../assets/images/ronaldinho.jpg"
 import OptionsIcon from "../../../.././../assets/vectors/options.svg"
 import Text from "../../../designSystem/Text/Text"
 import { SvgIcon } from "../../../designSystem/SvgIcon/SvgIcon"
 import Pressable from "../../../designSystem/Pressable/Pressable"
-import { TimelineFeed } from "../../../../types/api/endpoints/feed/timeline.types"
-import { FeedCardHeaderProps } from "./FeedCardHeader.types"
 import { BottomSheetModal } from "@gorhom/bottom-sheet"
-import { useCallback, useMemo, useRef } from "react"
-import { useTheme } from "@shopify/restyle"
-import { Theme } from "../../../../utils/theme/theme"
+import { useCallback, useContext, useRef } from "react"
 import FeedCardModal from "../FeedCardModal/FeedCardModal"
-import { FeedCardProps } from "../FeedCard.types"
+import { FeedCardContext } from "../FeedCard.context"
 
-const FeedCardHeader = (timelineFeed: FeedCardProps) => {
+const FeedCardHeader = () => {
+  const { timelineFeedItem } = useContext(FeedCardContext);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const handlePresentModalPress = useCallback(() => {
@@ -25,11 +21,11 @@ const FeedCardHeader = (timelineFeed: FeedCardProps) => {
     <Box flex={1}>
       <Box flexDirection="row" alignItems="center" justifyContent="space-between" padding="m">
         <Box flexDirection="row" alignItems="center">
-          <Image source={{ uri: timelineFeed.user.profile_pic_url }} width={32} height={32} borderRadius='l' marginRight="m" />
+          <Image source={{ uri: timelineFeedItem.user.profile_pic_url }} width={32} height={32} borderRadius='l' marginRight="m" />
           <Box>
-            <Text fontWeight="800">{timelineFeed.user.username}</Text>
-            {timelineFeed.location && 
-              <Text fontSize={13} lineHeight={13} fontWeight="100">{timelineFeed.location.short_name}</Text>
+            <Text fontWeight="800">{timelineFeedItem.user.username}</Text>
+            {timelineFeedItem.location && 
+              <Text fontSize={13} lineHeight={13} fontWeight="100">{timelineFeedItem.location.short_name}</Text>
             }
           </Box>
         </Box>
@@ -41,7 +37,7 @@ const FeedCardHeader = (timelineFeed: FeedCardProps) => {
           />
         </Pressable>
       </Box>
-      <FeedCardModal ref={bottomSheetModalRef} {...timelineFeed.user} />
+      <FeedCardModal ref={bottomSheetModalRef} {...timelineFeedItem.user} />
     </Box>
   )
 }

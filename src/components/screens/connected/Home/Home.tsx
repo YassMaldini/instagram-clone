@@ -11,29 +11,29 @@ import { timelineSample } from "../../../../utils/api/samples/timelineSample"
 import { reelsTraySample } from "../../../../utils/api/samples/reelsTraySample"
 
 const Home = () => {
-  const {
-    data: timeline,
-    isLoading: isTimelineLoading,
-    error: timelineError
-  } = useTimelineFeed();
+  // const {
+  //   data: timeline,
+  //   isLoading: isTimelineLoading,
+  //   error: timelineError
+  // } = useTimelineFeed();
 
-  const {
-    data: reelsTray,
-    isLoading: isReelsTrayLoading,
-    error: reelsTrayError
-  } = useReelsTrayFeed();
+  // const {
+  //   data: reelsTray,
+  //   isLoading: isReelsTrayLoading,
+  //   error: reelsTrayError
+  // } = useReelsTrayFeed();
 
-  const { isLoading, error } = useMergedStatesFromFetchers({
-    loadings: [isTimelineLoading, isReelsTrayLoading,],
-    errors: [timelineError, reelsTrayError]
-  });
+  // const { isLoading, error } = useMergedStatesFromFetchers({
+  //   loadings: [isTimelineLoading, isReelsTrayLoading,],
+  //   errors: [timelineError, reelsTrayError]
+  // });
 
   const contextValue = useMemo<HomeContextProps>(
     () => ({
-      timeline: timeline,
-      reelsTray: reelsTray,
-      isLoading,
-      error
+      timeline: timelineSample,
+      reelsTray: reelsTraySample,
+      isLoading: false,
+      error: null
     }),
     // [
     //   timeline,
@@ -42,8 +42,8 @@ const Home = () => {
     //   error
     // ]
     [
-      timeline,
-      reelsTray
+      timelineSample,
+      reelsTraySample
     ]
   );
 

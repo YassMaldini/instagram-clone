@@ -21,25 +21,25 @@ import FeedCardMedia from "./FeedCardMedia/FeedCardMedia"
 import { FeedCardContext } from "./FeedCard.context"
 import moment from "moment"
 
-const FeedCard = (timelineFeed: FeedCardProps) => {
+const FeedCard = (timelineFeedItem: FeedCardProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const contextValue = useMemo<FeedCardContextProps>(
-    () => ({ activeIndex, setActiveIndex }),
-    [activeIndex, setActiveIndex]
+    () => ({ timelineFeedItem, activeIndex, setActiveIndex }),
+    [timelineFeedItem, activeIndex, setActiveIndex]
   )
 
   return (
     <FeedCardContext.Provider value={contextValue}>
       <Box flex={1} backgroundColor="primaryBackground">
-        <FeedCardHeader {...timelineFeed} />
-        <FeedCardMedia {...timelineFeed} />
-        <FeedCardActions {...timelineFeed} />
-        {timelineFeed.caption && <FeedCardCaption {...timelineFeed.caption} />}
+        {timelineFeedItem.user && <FeedCardHeader />}
+        <FeedCardMedia />
+        <FeedCardActions />
+        {timelineFeedItem.caption && <FeedCardCaption />}
         <Pressable>
-          <Text marginLeft="m" color="secondaryText">Voir les {timelineFeed.comment_count && thousandFormatter(timelineFeed.comment_count)} commentaires</Text>
+          <Text marginLeft="m" color="secondaryText">Voir les {timelineFeedItem.comment_count && thousandFormatter(timelineFeedItem.comment_count)} commentaires</Text>
         </Pressable>
-        <Text marginLeft="m" color="secondaryText" fontSize={12}>{moment.unix(timelineFeed.taken_at as number).fromNow()}</Text>
+        <Text marginLeft="m" color="secondaryText" fontSize={12}>{moment.unix(timelineFeedItem.taken_at as number).fromNow()}</Text>
       </Box>
     </FeedCardContext.Provider>
   )

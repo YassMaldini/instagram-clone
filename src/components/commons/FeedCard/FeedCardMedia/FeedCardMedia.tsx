@@ -9,41 +9,41 @@ import { TimelineFeedResponseCarouselMediaItem } from "../../../../types/api/end
 import Box from "../../../designSystem/Box/Box"
 import { FeedCardContext } from "../FeedCard.context"
 
-const FeedCardMedia = (timelineFeed: FeedCardProps) => {
+const FeedCardMedia = () => {
   const carousel = useRef<Carousel<TimelineFeedResponseCarouselMediaItem>>(null);
-  const { activeIndex, setActiveIndex } = useContext(FeedCardContext);
+  const { timelineFeedItem, setActiveIndex } = useContext(FeedCardContext);
 
-  if (timelineFeed.media_type === 1 && timelineFeed.image_versions2) {
+  if (timelineFeedItem.media_type === 1 && timelineFeedItem.image_versions2) {
     return (
       <Image
         flex={1}
         width={Dimensions.get('window').width}
-        aspectRatio={timelineFeed.image_versions2.candidates[0].width / timelineFeed.image_versions2.candidates[0].height}
-        source={{ uri: timelineFeed.image_versions2.candidates[0].url }}
+        aspectRatio={timelineFeedItem.image_versions2.candidates[0].width / timelineFeedItem.image_versions2.candidates[0].height}
+        source={{ uri: timelineFeedItem.image_versions2.candidates[0].url }}
       />
     )
   }
-  if (timelineFeed.media_type === 2 && timelineFeed.video_versions) {
+  if (timelineFeedItem.media_type === 2 && timelineFeedItem.video_versions) {
     return (
       <Video
-        source={{ uri: timelineFeed.video_versions[0].url }}
+        source={{ uri: timelineFeedItem.video_versions[0].url }}
         style={{
           width: Dimensions.get('screen').width,
-          aspectRatio: timelineFeed.video_versions[0].width / timelineFeed.video_versions[0].height
+          aspectRatio: timelineFeedItem.video_versions[0].width / timelineFeedItem.video_versions[0].height
         }}
         isLooping
         usePoster
         resizeMode={ResizeMode.CONTAIN}
-        posterSource={timelineFeed.image_versions2 && { uri: timelineFeed.image_versions2.candidates[0].url }}
+        posterSource={timelineFeedItem.image_versions2 && { uri: timelineFeedItem.image_versions2.candidates[0].url }}
       />
     )
   }
-  if (timelineFeed.media_type === 8 && timelineFeed.carousel_media) {
+  if (timelineFeedItem.media_type === 8 && timelineFeedItem.carousel_media) {
     return (
       <Carousel
           layout={"default"}
           ref={carousel}
-          data={timelineFeed.carousel_media}
+          data={timelineFeedItem.carousel_media}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={Dimensions.get('window').width}
           activeSlideOffset={100}
