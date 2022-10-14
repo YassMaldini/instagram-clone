@@ -36,7 +36,9 @@ const getTheme = () => (
       xs: 4,
       s: 8,
       m: 16,
-      l: 40
+      l: 40,
+      xl: 60,
+      xxl: 500
     },
     breakpoints: {
       phone: 0,

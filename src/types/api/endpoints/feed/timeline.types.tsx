@@ -1,3 +1,6 @@
+import { AccountRepositoryCurrentUserResponseUser } from "instagram-private-api";
+import User from "../../../models/user/User.types";
+
 export interface TimelineFeedSuccessResponseData {
   num_results: number;
   more_available: boolean;
@@ -12,6 +15,17 @@ export interface TimelineFeedSuccessResponseData {
   client_session_id: string;
   client_gap_enforcer_matrix: TimelineFeedResponseClientGapEnforcerMatrixItem[];
   status: string;
+}
+export interface TimelineFeed extends TimelineFeedResponseMedia_or_ad {
+  image_versions2: {
+    candidates: {
+      width: number,
+      height: number,
+      url: string,
+      scans_profile: string,
+      estimated_scans_sizes: number[]
+    }[]
+  }
 }
 export interface TimelineFeedResponseFeedItemsItem {
   media_or_ad: TimelineFeedResponseMedia_or_ad;
@@ -203,6 +217,7 @@ export interface TimelineFeedResponseCarouselMediaItem {
   id: string;
   media_type: number;
   image_versions2: TimelineFeedResponseImage_versions2;
+  video_versions?: TimelineFeedResponseVideoVersionsItem[];
   original_width: number;
   original_height: number;
   pk: string;

@@ -16,7 +16,7 @@ export const queryTimelineFeed = async (data: object) => {
         throw error;
     }
 
-    console.log('----------------------->', json)
+    // console.log('----------------------->', json)
 
     console.log(PREFIX, `Received feed timeline.`);
     return json as TimelineFeedSuccessResponseData;

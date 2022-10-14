@@ -69,7 +69,7 @@ export const signInWithUsernameAndPassword =
     const profile = (json as AuthSuccessResponseData).logged_in_user;
     dispatch<SetAuthenticationInfosAction>({
         type: SET_AUTHENTICATION_INFOS,
-        profile: null,
+        profile,
         secrets,
         device
     });

@@ -21,5 +21,8 @@ export const PALETTE = Object.freeze({
 
   disabledButtonBackground: "#0095F650",
   disabledButtonText: "#BCC0C480",
-  disabledText: "#BCC0C4"
+  disabledText: "#BCC0C4",
+
+  elevatedSeparator: '#343434',
+  errorOrDestructive: '#ed4956'
 })
