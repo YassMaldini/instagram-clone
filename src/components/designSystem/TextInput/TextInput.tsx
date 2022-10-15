@@ -1,20 +1,21 @@
-import { backgroundColor, BackgroundColorProps, border, BorderProps, color, ColorProps, composeRestyleFunctions, createRestyleComponent, layout, LayoutProps, spacing, SpacingProps, useRestyle } from "@shopify/restyle";
+import { backgroundColor, BackgroundColorProps, border, BorderProps, color, ColorProps, composeRestyleFunctions, createRestyleComponent, layout, LayoutProps, spacing, SpacingProps, typography, TypographyProps, useRestyle } from "@shopify/restyle";
 import { forwardRef, useMemo } from "react";
 import { Platform } from "react-native";
 import { TextInputprops } from "./TextInput.types";
 import { TextInput as RNTextInput } from "react-native";
 import { Theme } from "../../../utils/theme/theme";
 
-type RestyleProps = SpacingProps<Theme> & LayoutProps<Theme> & BorderProps<Theme> & BackgroundColorProps<Theme> & ColorProps<Theme>
+type RestyleProps = SpacingProps<Theme> & LayoutProps<Theme> & BorderProps<Theme> & BackgroundColorProps<Theme> & ColorProps<Theme> & TypographyProps<Theme>
 
 const TextInput = forwardRef<any, TextInputprops>(
   ({ style: receivedStyle, multiline, ...rest }, ref) => {
-    const restyleFunctions = composeRestyleFunctions<Theme, RestyleProps>([
+    const restyleFunctions = composeRestyleFunctions<Theme, TextInputprops>([
       spacing,
       layout,
       border,
       color,
-      backgroundColor
+      backgroundColor,
+      typography
     ]);
 
     // @ts-ignore
@@ -22,7 +23,7 @@ const TextInput = forwardRef<any, TextInputprops>(
 
     const Component = useMemo(() => {
       return createRestyleComponent<RestyleProps, Theme>(
-        [spacing, layout, border, backgroundColor, color],
+        [spacing, layout, border, backgroundColor, color, typography],
         RNTextInput
       )
     }, [])

@@ -6,6 +6,7 @@ import HomeIcon from '../../../../assets/vectors/home.svg'
 import { View } from 'react-native';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../../utils/theme/theme';
+import HomeStack from '../HomeStack/HomeStack';
 
 const ConnectedBottomTab = () => {
   const theme = useTheme<Theme>();
@@ -24,8 +25,8 @@ const ConnectedBottomTab = () => {
       }}
     >
       <Screen
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={HomeStack}
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ focused }) => (

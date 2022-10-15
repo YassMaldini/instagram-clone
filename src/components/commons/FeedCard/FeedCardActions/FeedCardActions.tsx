@@ -142,6 +142,7 @@ const FeedCardActions = () => {
           {
             timelineFeedItem.carousel_media.map((item, index) => (
               <Box 
+                key={index.toString()}
                 width={6} 
                 height={6} 
                 borderRadius="l"

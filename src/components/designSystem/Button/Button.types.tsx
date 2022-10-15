@@ -4,7 +4,13 @@ import { PressableProps } from "react-native";
 import { Theme } from "../../../utils/theme/theme";
 
 export enum ButtonColors {
-  Primary = 'primary'
+  Primary = 'primary',
+  PrimaryText = 'primaryText'
+}
+
+export enum ButtonVariants {
+  Contained = 'contained',
+  Text = 'text'
 }
 
 export interface ButtonBaseContrastColors {
@@ -29,4 +35,5 @@ export interface ButtonProps extends
     disabled?: boolean;
     children: ReactNode;
     color?: ButtonColors;
+    variant?: ButtonVariants;
 }

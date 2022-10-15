@@ -14,7 +14,7 @@ const Navigation = (): JSX.Element => {
       ...DarkTheme,
       colors: {
         ...DarkTheme.colors,
-        background: theme.colors.secondaryBackground
+        background: theme.colors.primaryBackground
       }
     };
   }, []);

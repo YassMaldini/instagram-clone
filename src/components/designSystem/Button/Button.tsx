@@ -3,7 +3,7 @@ import { ActivityIndicator, Pressable } from "react-native"
 import { Theme } from "../../../utils/theme/theme"
 import Box from "../Box/Box"
 import Text from "../Text/Text"
-import { ButtonColors, ButtonProps } from "./Button.types"
+import { ButtonColors, ButtonProps, ButtonVariants } from "./Button.types"
 import { BackgroundColorProps, ColorProps, LayoutProps, OpacityProps, SpacingProps } from "@shopify/restyle";
 import { getButtonBackgroundColor, getButtonTextColor } from "./Button.theme"
 
@@ -17,14 +17,15 @@ const Content = ({
   loading,
   disabled,
   children,
-  color = ButtonColors.Primary
+  color = ButtonColors.Primary,
+  variant = ButtonVariants.Text
 }: ButtonProps) => {
 
   const isChildrenString = typeof children === 'string';
 
   const buttonBackgroundColor = getButtonBackgroundColor({ disabled, color });
 
-  const buttonTextColor = getButtonTextColor({ disabled, color });
+  const buttonTextColor = getButtonTextColor({ disabled, color, variant });
 
   if (loading) {
     return (
@@ -64,6 +65,7 @@ const Button = ({
   disabled,
   children,
   color = ButtonColors.Primary,
+  variant,
   ...rest
 }: ButtonProps) => {
 
@@ -88,7 +90,8 @@ const Button = ({
         loading,
         disabled,
         children,
-        color
+        color,
+        variant
       }} />
     </Component>
   )

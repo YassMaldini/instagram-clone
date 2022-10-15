@@ -20,8 +20,11 @@ import { Gesture } from "react-native-gesture-handler"
 import FeedCardMedia from "./FeedCardMedia/FeedCardMedia"
 import { FeedCardContext } from "./FeedCard.context"
 import moment from "moment"
+import { useNavigation } from "@react-navigation/native"
+import { HomeProps } from "../../screens/connected/Home/Home.types"
 
 const FeedCard = (timelineFeedItem: FeedCardProps) => {
+  const { navigate } = useNavigation<HomeProps['navigation']>();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const contextValue = useMemo<FeedCardContextProps>(
@@ -36,9 +39,11 @@ const FeedCard = (timelineFeedItem: FeedCardProps) => {
         <FeedCardMedia />
         <FeedCardActions />
         {timelineFeedItem.caption && <FeedCardCaption />}
-        <Pressable>
-          <Text marginLeft="m" color="secondaryText">Voir les {timelineFeedItem.comment_count && thousandFormatter(timelineFeedItem.comment_count)} commentaires</Text>
-        </Pressable>
+        {timelineFeedItem.comment_count > 0 &&
+          <Pressable onPress={() => navigate('Comments', { mediaId: timelineFeedItem.id })}>
+            <Text marginLeft="m" color="secondaryText">Voir les {thousandFormatter(timelineFeedItem.comment_count)} commentaires</Text>
+          </Pressable>
+        }
         <Text marginLeft="m" color="secondaryText" fontSize={12}>{moment.unix(timelineFeedItem.taken_at as number).fromNow()}</Text>
       </Box>
     </FeedCardContext.Provider>
