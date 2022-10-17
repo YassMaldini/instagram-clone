@@ -21,12 +21,6 @@ const RootStack = () => {
     'Font-Spring': require('../../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf'),
   });
 
-  // const [fontsLoaded] = useFonts({
-  //   'Roboto-Regular': require('../../../../assets/fonts/Roboto/Roboto-Regular.ttf'),
-  //   'Roboto-Bold': require('../../../../assets/fonts/Roboto/Roboto-Bold.ttf'),
-  //   'Font-Spring': require('../../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf'),
-  // });
-
   const screens = useMemo(
     () => getRootStackScreens({ isSignedIn }),
     [isSignedIn]
