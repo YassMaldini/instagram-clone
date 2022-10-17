@@ -12,7 +12,7 @@ import Pressable from '../Pressable/Pressable';
 
 const Component = createRestyleComponent<VideoProps, Theme>([spacing, backgroundColor, border, layout], ExpoVideo);
 
-const Video = (props: VideoProps) => {
+const Video = ({ isPlayable = true, pauseEnabled = true, ...props }: VideoProps) => {
   const video = useRef<ExpoVideo>(null);
   const [status, setStatus] = useState<AVPlaybackStatusSuccess>();
 
@@ -36,15 +36,23 @@ const Video = (props: VideoProps) => {
 
   return (
     <Box flex={1} position="relative">
-      <Pressable onPress={onPressPause}>
+      {pauseEnabled ?
+        <Pressable onPress={onPressPause}>
+          <Component
+            ref={video}
+            isLooping
+            onPlaybackStatusUpdate={status => setStatus(status as AVPlaybackStatusSuccess)}
+            {...props}
+          />
+        </Pressable> :
         <Component
           ref={video}
           isLooping
           onPlaybackStatusUpdate={status => setStatus(status as AVPlaybackStatusSuccess)}
           {...props}
         />
-      </Pressable>
-      {Boolean(!status || !status.isPlaying) &&
+      }
+      {Boolean(!status || !status.isPlaying) && isPlayable &&
         <Box 
           position="absolute" 
           top={0} 

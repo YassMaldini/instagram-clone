@@ -6,7 +6,6 @@ import Text from "../../../designSystem/Text/Text"
 import { HomeStackParamsList } from "../../../navigation/HomeStack/HomeStack.types"
 import { CommentsProps } from "./Comments.types"
 import { commentsSample } from "../../../../utils/api/samples/commentsSample"
-import CommentsNav from "./CommentsFeed/CommentsNav/CommentsNav"
 import CommentsCaption from "./CommentsFeed/CommentsCaption/CommentsCaption"
 import CommentsItem from "./CommentsFeed/CommentsItem/CommentsItem"
 import { FlashList } from "@shopify/flash-list"
@@ -25,12 +24,22 @@ import { profileSelector } from "../../../../store/authentication/authentication
 import User from "../../../../types/models/user/User.types"
 import { AccountRepositoryLoginResponseLogged_in_user } from "instagram-private-api"
 import CommentsFeed from "./CommentsFeed/CommentsFeed"
+import ScreenHeader from "../../../commons/ScreenHeader/ScreenHeader"
+import SendArrow from "../../../../../assets/images/instagram_direct_outline_44.png"
 
 const Comments = () => {
 
   return (
     <Box flex={1}>
-      <CommentsNav />
+      <ScreenHeader
+        showGoBackTouchable
+        title="Comments"
+        rightElement={
+          <Pressable>
+            <Image source={SendArrow} width={42} height={42} marginRight="s" />
+          </Pressable>
+        }
+      />
       <CommentsFeed />
     </Box>
   )

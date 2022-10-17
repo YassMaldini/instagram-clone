@@ -12,7 +12,7 @@ export const BUTTONS_COLORS = Object.freeze<ButtonColorsData>({
       text: "disabledButtonText"
     }
   },
-  [ButtonColors.PrimaryText]: {
+  [ButtonColors.PrimaryOutline]: {
     regular: {
       background: "highlightBackground",
       text: "primaryButton"
@@ -20,6 +20,16 @@ export const BUTTONS_COLORS = Object.freeze<ButtonColorsData>({
     disabled: {
       background: "highlightBackground",
       text: "disabledButtonBackground"
+    }
+  },
+  [ButtonColors.PrimaryText]: {
+    regular: {
+      background: "transparent",
+      text: "primaryText"
+    },
+    disabled: {
+      background: "transparent",
+      text: "primaryText"
     }
   }
 })

@@ -5,6 +5,7 @@ import { Theme } from "../../../utils/theme/theme";
 
 export enum ButtonColors {
   Primary = 'primary',
+  PrimaryOutline = 'primaryOutline',
   PrimaryText = 'primaryText'
 }
 
@@ -36,4 +37,5 @@ export interface ButtonProps extends
     children: ReactNode;
     color?: ButtonColors;
     variant?: ButtonVariants;
+    isBold?: boolean;
 }

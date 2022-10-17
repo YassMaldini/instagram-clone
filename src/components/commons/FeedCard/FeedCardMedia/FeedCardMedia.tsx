@@ -8,9 +8,10 @@ import Carousel from "react-native-snap-carousel"
 import { TimelineFeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/timeline.types"
 import Box from "../../../designSystem/Box/Box"
 import { FeedCardContext } from "../FeedCard.context"
+import { FeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/feed.types"
 
 const FeedCardMedia = () => {
-  const carousel = useRef<Carousel<TimelineFeedResponseCarouselMediaItem>>(null);
+  const carousel = useRef<Carousel<FeedResponseCarouselMediaItem>>(null);
   const { timelineFeedItem, setActiveIndex } = useContext(FeedCardContext);
 
   if (timelineFeedItem.media_type === 1 && timelineFeedItem.image_versions2) {
@@ -32,6 +33,7 @@ const FeedCardMedia = () => {
           aspectRatio: timelineFeedItem.video_versions[0].width / timelineFeedItem.video_versions[0].height
         }}
         isLooping
+        isMuted
         usePoster
         resizeMode={ResizeMode.CONTAIN}
         posterSource={timelineFeedItem.image_versions2 && { uri: timelineFeedItem.image_versions2.candidates[0].url }}

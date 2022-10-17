@@ -9,4 +9,7 @@ export interface VideoProps extends
     LayoutProps<Theme>,
     BackgroundColorProps<Theme>,
     BorderProps<Theme>,
-    Omit<ExpoVideoProps, 'height' | 'width' | 'borderRadius'> {}
+    Omit<ExpoVideoProps, 'height' | 'width' | 'borderRadius'> {
+        isPlayable?: boolean;
+        pauseEnabled?: boolean;
+    }

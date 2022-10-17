@@ -15,20 +15,11 @@ const RootStack = () => {
 
   const isSignedIn = useIsSignedIn();
 
-  const [fontsLoaded, setFontsLoaded] = useState(false)
-
-  const loadFonts = async () => {
-    await loadAsync({
-      'Roboto-Regular': require('../../../../assets/fonts/Roboto/Roboto-Regular.ttf'),
-      'Roboto-Bold': require('../../../../assets/fonts/Roboto/Roboto-Bold.ttf'),
-      'Font-Spring': require('../../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf'),
-    })
-    setFontsLoaded(true)
-  }
-
-  useEffect(() => {
-    loadFonts()
-  })
+  const [fontsLoaded] = useFonts({
+    'Roboto-Regular': require('../../../../assets/fonts/Roboto/Roboto-Regular.ttf'),
+    'Roboto-Bold': require('../../../../assets/fonts/Roboto/Roboto-Bold.ttf'),
+    'Font-Spring': require('../../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf'),
+  });
 
   // const [fontsLoaded] = useFonts({
   //   'Roboto-Regular': require('../../../../assets/fonts/Roboto/Roboto-Regular.ttf'),

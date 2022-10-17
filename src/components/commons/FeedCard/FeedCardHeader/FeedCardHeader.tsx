@@ -18,7 +18,7 @@ const FeedCardHeader = () => {
   }, []);
 
   return (
-    <Box flex={1}>
+    <Box>
       <Box flexDirection="row" alignItems="center" justifyContent="space-between" padding="m">
         <Box flexDirection="row" alignItems="center">
           <Image source={{ uri: timelineFeedItem.user.profile_pic_url }} width={32} height={32} borderRadius='l' marginRight="m" />

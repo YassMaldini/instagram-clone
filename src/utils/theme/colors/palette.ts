@@ -9,6 +9,7 @@ export const PALETTE = Object.freeze({
 
   white: "#fff",
   black: "#000",
+  transparent: '#00000000',
 
   gray0: '#F2F2F2',
   gray1: '#E5E5ED',

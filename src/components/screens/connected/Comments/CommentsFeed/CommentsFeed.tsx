@@ -115,12 +115,13 @@ const CommentsFeed = () => {
                 ref={textInputRef}
                 onChangeText={text => setValue(text)}
                 color='primaryText'
+                paddingVertical="sToM"
                 {...{ value }}
               />
               {(isKeyboardVisible || value.length > 0) && (
                 <Box>
                   <Button
-                    color={ButtonColors.PrimaryText}
+                    color={ButtonColors.PrimaryOutline}
                     paddingHorizontal="sToM"
                     disabled={value.length === 0}
                     onPress={() => commentMutate({

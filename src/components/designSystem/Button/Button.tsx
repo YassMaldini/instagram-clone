@@ -18,7 +18,8 @@ const Content = ({
   disabled,
   children,
   color = ButtonColors.Primary,
-  variant = ButtonVariants.Text
+  variant = ButtonVariants.Text,
+  isBold = true
 }: ButtonProps) => {
 
   const isChildrenString = typeof children === 'string';
@@ -50,7 +51,7 @@ const Content = ({
         <Text
           fontSize={14}
           textAlign="center"
-          fontFamily='Roboto-Bold'
+          fontFamily={isBold ? 'Roboto-Bold' : 'Roboto-Regular'}
           color={buttonTextColor}
         >{children}</Text>
       }
@@ -66,6 +67,7 @@ const Button = ({
   children,
   color = ButtonColors.Primary,
   variant,
+  isBold,
   ...rest
 }: ButtonProps) => {
 
@@ -91,7 +93,8 @@ const Button = ({
         disabled,
         children,
         color,
-        variant
+        variant,
+        isBold
       }} />
     </Component>
   )
