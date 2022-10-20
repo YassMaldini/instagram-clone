@@ -8,11 +8,17 @@
     "web": "expo start --web",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.json",
     "lint-and-fix": "eslint . --ext .ts,.tsx,.js,.jsx,.json --fix",
-    "prettier-format": "prettier --config .prettierrc **/*.{json,js,jsx,ts,tsx,css,scss,md} --write",
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm run prettier-format && npm run lint"
-      }
+    "prettier-format": "prettier --config .prettierrc **/*.{json,js,jsx,ts,tsx,css,scss,md} --write"
+  },
+  "lint-staged": {
+    "**/*.{json,js,jsx,ts,tsx,css,scss,md}": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
     }
   },
   "dependencies": {
