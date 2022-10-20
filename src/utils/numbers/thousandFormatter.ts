@@ -4,14 +4,14 @@ const thousandFormatter = (receivedNumber: number) => {
   if (!Boolean(number)) {
     return;
   }
-  const numberSplitter = ".";
+  const numberSplitter = '.';
   if (number.includes(numberSplitter)) {
     const numberToFormat = number.split(numberSplitter);
-    return [numberToFormat[0].replace(THOUSAND_FORMATTER, " "), numberToFormat[1]]
+    return [numberToFormat[0].replace(THOUSAND_FORMATTER, ' '), numberToFormat[1]]
       .join(numberSplitter)
       .trim();
   }
-  return number.replace(THOUSAND_FORMATTER, " ");
-}
+  return number.replace(THOUSAND_FORMATTER, ' ');
+};
 
-export default thousandFormatter
+export default thousandFormatter;

@@ -1,5 +1,5 @@
-import { Cookie, MemoryCookieStore } from 'tough-cookie'
-import * as Constants from 'instagram-private-api/dist/core/constants'
+import { Cookie, MemoryCookieStore } from 'tough-cookie';
+import * as Constants from 'instagram-private-api/dist/core/constants';
 import { ChallengeStateResponse, CheckpointResponse } from 'instagram-private-api';
 import { CookieJar } from '../../../utils/api/extractCookieFromCookieJar';
 
@@ -16,13 +16,16 @@ export type State = {
   get experiments(): string;
   get bloksVersionId(): string;
   constants: typeof Constants;
-  supportedCapabilities: ({
-      name: string;
-      value: string;
-  } | {
-      name: string;
-      value: number;
-  })[];
+  supportedCapabilities: (
+    | {
+        name: string;
+        value: string;
+      }
+    | {
+        name: string;
+        value: number;
+      }
+  )[];
   language: string;
   timezoneOffset: string;
   radioType: string;
@@ -54,10 +57,10 @@ export type State = {
   get appUserAgent(): string;
   get webUserAgent(): string;
   get devicePayload(): {
-      android_version: string;
-      android_release: string;
-      manufacturer: string;
-      model: string;
+    android_version: string;
+    android_release: string;
+    manufacturer: string;
+    model: string;
   };
   get batteryLevel(): number;
   get isCharging(): boolean;
@@ -69,10 +72,12 @@ export type State = {
   extractCookie(key: string): Cookie | null;
   extractCookieValue(key: string): string;
   extractUserId(): string;
-  serialize(): Promise<{
+  serialize(): Promise<
+    {
       constants: any;
       cookies: any;
-  } & any>;
+    } & any
+  >;
   deserialize(state: string | any): Promise<void>;
   generateDevice(seed: string): void;
-}
+};

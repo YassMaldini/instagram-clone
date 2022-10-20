@@ -1,7 +1,7 @@
-import { createTheme } from "@shopify/restyle";
-import COMMONS_COLORS from "./colors/commons";
+import { createTheme } from '@shopify/restyle';
+import COMMONS_COLORS from './colors/commons';
 
-const getTheme = () => (
+const getTheme = () =>
   createTheme({
     colors: { ...COMMONS_COLORS },
     spacing: {
@@ -15,7 +15,7 @@ const getTheme = () => (
       l: 24,
       xl: 48,
       xxl: 86,
-      xxxl: 112
+      xxxl: 112,
     },
     layout: {
       none: 0,
@@ -28,7 +28,7 @@ const getTheme = () => (
       l: 24,
       xl: 48,
       xxl: 86,
-      xxxl: 112
+      xxxl: 112,
     },
     borderRadii: {
       none: 0,
@@ -38,24 +38,23 @@ const getTheme = () => (
       m: 16,
       l: 40,
       xl: 60,
-      xxl: 500
+      xxl: 500,
     },
     breakpoints: {
       phone: 0,
       tablet: 768,
-      largeTablet: 1024
+      largeTablet: 1024,
     },
     textVariants: {
       defaults: {
-        color: "primaryText",
-        fontFamily: "Roboto-Regular"
+        color: 'primaryText',
+        fontFamily: 'Roboto-Regular',
       },
       title: {
-        fontWeight: 800
-      }
-    }
-  })
-)
+        fontWeight: 800,
+      },
+    },
+  });
 
 export default getTheme;
 

@@ -10,10 +10,10 @@ export enum StaticPostEndpoints {
 
   // Feed
   ReelsTrayFeed = '/feed/reels_tray/',
-  TimelineFeed = '/feed/timeline/'
+  TimelineFeed = '/feed/timeline/',
 }
 
 export enum StaticGetEndpoints {
   // Accounts
-  CurrentUser = '/accounts/current_user/'
+  CurrentUser = '/accounts/current_user/',
 }

@@ -11,7 +11,6 @@ import './src/utils/i18n/i18n';
 import AppLoader from './src/components/commons/AppLoader/AppLoader';
 
 const App = () => {
-
   const { store, persistor } = configureStore();
   const queryClient = new QueryClient();
 
@@ -19,20 +18,20 @@ const App = () => {
 
   return (
     <>
-    <StatusBar style='inverted' />
-    <AppLoader>
-      <ThemeProvider {...{ theme }}>
-        <StoreProvider {...{ store }}>
-          <PersistGate {...{ persistor }}>
-            <QueryClientProvider client={queryClient}>
+      <StatusBar style="inverted" />
+      <AppLoader>
+        <ThemeProvider {...{ theme }}>
+          <StoreProvider {...{ store }}>
+            <PersistGate {...{ persistor }}>
+              <QueryClientProvider client={queryClient}>
                 <Navigation />
-            </QueryClientProvider>
-          </PersistGate>
-        </StoreProvider>
-      </ThemeProvider>
-    </AppLoader>
+              </QueryClientProvider>
+            </PersistGate>
+          </StoreProvider>
+        </ThemeProvider>
+      </AppLoader>
     </>
   );
-}
+};
 
 export default App;

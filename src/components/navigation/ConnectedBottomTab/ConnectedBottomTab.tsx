@@ -32,18 +32,17 @@ const ConnectedBottomTab = () => {
           elevation: 0,
           borderTopWidth: 1,
           borderTopColor: 'rgba(0, 0, 0, .04)',
-          backgroundColor: theme.colors.primaryBackground
-        }
-      }}
-    >
+          backgroundColor: theme.colors.primaryBackground,
+        },
+      }}>
       <Screen
         name="HomeStack"
         component={HomeStack}
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ focused }) => (
-            <SvgIcon color='primaryText' width={28} height={28} icon={HomeIcon} />
-          )
+            <SvgIcon color="primaryText" width={28} height={28} icon={HomeIcon} />
+          ),
         }}
       />
       <Screen
@@ -51,13 +50,12 @@ const ConnectedBottomTab = () => {
         component={SearchStack}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: ({ focused }) => (
-            focused
-            ?
-            <Image source={SearchIcon12} width={22} height={22} />
-            :
-            <Image source={SearchIcon16} width={24} height={24} />
-          )
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Image source={SearchIcon12} width={22} height={22} />
+            ) : (
+              <Image source={SearchIcon16} width={24} height={24} />
+            ),
         }}
       />
       <Screen
@@ -65,13 +63,12 @@ const ConnectedBottomTab = () => {
         component={ReelsScreen}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: ({ focused }) => (
-            focused
-            ?
-            <Image source={ReelsIcon} width={36} height={36} />
-            :
-            <Image source={ReelsIcon} width={36} height={36} />
-          )
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Image source={ReelsIcon} width={36} height={36} />
+            ) : (
+              <Image source={ReelsIcon} width={36} height={36} />
+            ),
         }}
       />
       <Screen
@@ -79,13 +76,12 @@ const ConnectedBottomTab = () => {
         component={ShopScreen}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: ({ focused }) => (
-            focused
-            ?
-            <Image source={ShopIcon} width={42} height={42} />
-            :
-            <Image source={ShopIcon} width={42} height={42} />
-          )
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Image source={ShopIcon} width={42} height={42} />
+            ) : (
+              <Image source={ShopIcon} width={42} height={42} />
+            ),
         }}
       />
       <Screen
@@ -93,23 +89,22 @@ const ConnectedBottomTab = () => {
         component={ProfileStack}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: ({ focused }) => (
-            focused
-            ?
-            <Image 
-              source={{ uri: profile.profile_pic_url }} 
-              width={28} 
-              height={28} 
-              borderRadius="l"
-            />
-            :
-            <Image 
-              source={{ uri: profile.profile_pic_url }} 
-              width={26} 
-              height={26} 
-              borderRadius="l"
-            />
-          )
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Image
+                source={{ uri: profile.profile_pic_url }}
+                width={28}
+                height={28}
+                borderRadius="l"
+              />
+            ) : (
+              <Image
+                source={{ uri: profile.profile_pic_url }}
+                width={26}
+                height={26}
+                borderRadius="l"
+              />
+            ),
         }}
       />
     </Navigator>

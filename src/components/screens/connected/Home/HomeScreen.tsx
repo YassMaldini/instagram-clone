@@ -1,14 +1,14 @@
-import { useMemo } from "react";
-import HomeHeader from "./HomeHeader/HomeHeader";
-import Box from "../../../designSystem/Box/Box";
-import TimelineFeed from "../../../commons/TimelineFeed/TimelineFeed";
-import useTimelineFeed from "../../../../hooks/feed/useTimelineFeed/useTimelineFeed";
-import useReelsTrayFeed from "../../../../hooks/feed/useReelsTrayFeed/useReelsTrayFeed";
-import { useMergedStatesFromFetchers } from "../../../../hooks/useMergedStatesFromFetchers/useMergedStatesFromFetchers";
-import { HomeContext } from "./HomeScreen.context";
-import { timelineSample } from "../../../../utils/api/samples/timelineSample"
-import { reelsTraySample } from "../../../../utils/api/samples/reelsTraySample"
-import { HomeScreenContextProps } from "./HomeScreen.types";
+import { useMemo } from 'react';
+import HomeHeader from './HomeHeader/HomeHeader';
+import Box from '../../../designSystem/Box/Box';
+import TimelineFeed from '../../../commons/TimelineFeed/TimelineFeed';
+import useTimelineFeed from '../../../../hooks/feed/useTimelineFeed/useTimelineFeed';
+import useReelsTrayFeed from '../../../../hooks/feed/useReelsTrayFeed/useReelsTrayFeed';
+import { useMergedStatesFromFetchers } from '../../../../hooks/useMergedStatesFromFetchers/useMergedStatesFromFetchers';
+import { HomeContext } from './HomeScreen.context';
+import { timelineSample } from '../../../../utils/api/samples/timelineSample';
+import { reelsTraySample } from '../../../../utils/api/samples/reelsTraySample';
+import { HomeScreenContextProps } from './HomeScreen.types';
 
 const HomeScreen = () => {
   // const {
@@ -33,7 +33,7 @@ const HomeScreen = () => {
       timeline: timelineSample,
       reelsTray: reelsTraySample,
       isLoading: false,
-      error: null
+      error: null,
     }),
     // [
     //   timeline,
@@ -41,10 +41,7 @@ const HomeScreen = () => {
     //   isLoading,
     //   error
     // ]
-    [
-      timelineSample,
-      reelsTraySample
-    ]
+    [timelineSample, reelsTraySample]
   );
 
   return (
@@ -54,7 +51,7 @@ const HomeScreen = () => {
         <TimelineFeed />
       </Box>
     </HomeContext.Provider>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

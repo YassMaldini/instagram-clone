@@ -1,11 +1,32 @@
-import { backgroundColor, BackgroundColorProps, border, BorderProps, color, ColorProps, composeRestyleFunctions, createRestyleComponent, layout, LayoutProps, spacing, SpacingProps, typography, TypographyProps, useRestyle } from "@shopify/restyle";
-import { forwardRef, useMemo } from "react";
-import { Platform } from "react-native";
-import { TextInputprops } from "./TextInput.types";
-import { TextInput as RNTextInput } from "react-native";
-import { Theme } from "../../../utils/theme/theme";
+import {
+  backgroundColor,
+  BackgroundColorProps,
+  border,
+  BorderProps,
+  color,
+  ColorProps,
+  composeRestyleFunctions,
+  createRestyleComponent,
+  layout,
+  LayoutProps,
+  spacing,
+  SpacingProps,
+  typography,
+  TypographyProps,
+  useRestyle,
+} from '@shopify/restyle';
+import { forwardRef, useMemo } from 'react';
+import { Platform } from 'react-native';
+import { TextInputprops } from './TextInput.types';
+import { TextInput as RNTextInput } from 'react-native';
+import { Theme } from '../../../utils/theme/theme';
 
-type RestyleProps = SpacingProps<Theme> & LayoutProps<Theme> & BorderProps<Theme> & BackgroundColorProps<Theme> & ColorProps<Theme> & TypographyProps<Theme>
+type RestyleProps = SpacingProps<Theme> &
+  LayoutProps<Theme> &
+  BorderProps<Theme> &
+  BackgroundColorProps<Theme> &
+  ColorProps<Theme> &
+  TypographyProps<Theme>;
 
 const TextInput = forwardRef<any, TextInputprops>(
   ({ style: receivedStyle, multiline, ...rest }, ref) => {
@@ -15,21 +36,21 @@ const TextInput = forwardRef<any, TextInputprops>(
       border,
       color,
       backgroundColor,
-      typography
+      typography,
     ]);
 
     // @ts-ignore
-    const rootProps = useRestyle(restyleFunctions, rest)
+    const rootProps = useRestyle(restyleFunctions, rest);
 
     const Component = useMemo(() => {
       return createRestyleComponent<RestyleProps, Theme>(
         [spacing, layout, border, backgroundColor, color, typography],
         RNTextInput
-      )
-    }, [])
+      );
+    }, []);
 
     return (
-      // <Component 
+      // <Component
       //   {...rootProps}
       //   {...{
       //     style: [
@@ -42,14 +63,9 @@ const TextInput = forwardRef<any, TextInputprops>(
       //   }}
       //   {...{ ref }}
       // />
-      <Component
-        paddingHorizontal="m"
-        borderRadius="s"
-        {...rootProps}
-        {...{ ref }}
-      />
-    )
+      <Component paddingHorizontal="m" borderRadius="s" {...rootProps} {...{ ref }} />
+    );
   }
-)
+);
 
-export default TextInput
+export default TextInput;

@@ -2,4 +2,4 @@ export interface UseUsertagsFeedOptions {
   userPk: number;
 }
 
-export type QueryUsertagsFeedOptions = UseUsertagsFeedOptions
+export type QueryUsertagsFeedOptions = UseUsertagsFeedOptions;

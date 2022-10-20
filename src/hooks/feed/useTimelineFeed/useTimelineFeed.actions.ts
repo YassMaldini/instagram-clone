@@ -1,23 +1,23 @@
-import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.feed.types";
-import { Device } from "../../../types/models/device/device.types";
-import FEED_ENDPOINTS from "../../../utils/api/endpoints/feedEndpoints";
+import { TimelineFeedSuccessResponseData } from '../../../types/api/endpoints/feed/timeline.feed.types';
+import { Device } from '../../../types/models/device/device.types';
+import FEED_ENDPOINTS from '../../../utils/api/endpoints/feedEndpoints';
 
 const PREFIX = '[queryTimelineFeed]';
 
 export const queryTimelineFeed = async (data: object) => {
-    console.log(PREFIX, `Fetching feed timeline...`);
-    const response = await FEED_ENDPOINTS.timelineFeed(data);
+  console.log(PREFIX, `Fetching feed timeline...`);
+  const response = await FEED_ENDPOINTS.timelineFeed(data);
 
-    const { problem, data: json } = response;
+  const { problem, data: json } = response;
 
-    if (problem) {
-        const error = response.data;
-        console.log(PREFIX, 'An error occurred.', error);
-        throw error;
-    }
+  if (problem) {
+    const error = response.data;
+    console.log(PREFIX, 'An error occurred.', error);
+    throw error;
+  }
 
-    // console.log('----------------------->', json)
+  // console.log('----------------------->', json)
 
-    console.log(PREFIX, `Received feed timeline.`);
-    return json as TimelineFeedSuccessResponseData;
+  console.log(PREFIX, `Received feed timeline.`);
+  return json as TimelineFeedSuccessResponseData;
 };

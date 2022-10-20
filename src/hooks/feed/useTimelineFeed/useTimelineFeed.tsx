@@ -1,12 +1,15 @@
-import { Chance } from "chance";
-import { useQuery } from "react-query"
-import { useSelector } from "react-redux";
-import { deviceSelector, secretsSelector } from "../../../store/authentication/authenticationReducerSelectors";
-import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.feed.types"
-import { Secrets } from "../../../types/models/authentication/secrets.types";
-import { Device } from "../../../types/models/device/device.types";
-import api from "../../../utils/api/api";
-import { queryTimelineFeed } from "./useTimelineFeed.actions";
+import { Chance } from 'chance';
+import { useQuery } from 'react-query';
+import { useSelector } from 'react-redux';
+import {
+  deviceSelector,
+  secretsSelector,
+} from '../../../store/authentication/authenticationReducerSelectors';
+import { TimelineFeedSuccessResponseData } from '../../../types/api/endpoints/feed/timeline.feed.types';
+import { Secrets } from '../../../types/models/authentication/secrets.types';
+import { Device } from '../../../types/models/device/device.types';
+import api from '../../../utils/api/api';
+import { queryTimelineFeed } from './useTimelineFeed.actions';
 
 export const USE_TIMELINE_FEED_QUERY_KEY = 'USE_TIMELINE_FEED';
 
@@ -18,10 +21,10 @@ const useTimelineFeed = () => {
     const chance = new Chance(device.deviceId);
     const percentTime = chance.integer({ min: 200, max: 600 });
     return 100 - (Math.round(Date.now() / 1000 / percentTime) % 100);
-  }
+  };
 
-  const timezoneOffset = String(new Date().getTimezoneOffset() * -60)
-  
+  const timezoneOffset = String(new Date().getTimezoneOffset() * -60);
+
   const form = {
     is_prefetch: '0',
     feed_view_info: '',
@@ -39,13 +42,12 @@ const useTimelineFeed = () => {
     is_async_ads_double_request: 0,
     will_sound_on: 0,
     is_async_ads_rti: 0,
-    reason: 'cold_start_fetch'
-  }
+    reason: 'cold_start_fetch',
+  };
 
-  return useQuery<TimelineFeedSuccessResponseData, Error>(
-    [USE_TIMELINE_FEED_QUERY_KEY],
-    () => queryTimelineFeed(form)
-)
-}
+  return useQuery<TimelineFeedSuccessResponseData, Error>([USE_TIMELINE_FEED_QUERY_KEY], () =>
+    queryTimelineFeed(form)
+  );
+};
 
-export default useTimelineFeed
+export default useTimelineFeed;

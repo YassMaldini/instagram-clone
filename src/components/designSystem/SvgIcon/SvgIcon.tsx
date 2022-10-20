@@ -1,4 +1,17 @@
-import { layout, opacity, spacing, useResponsiveProp, useRestyle, color, composeRestyleFunctions, SpacingProps, LayoutProps, OpacityProps, createRestyleComponent, ColorProps } from '@shopify/restyle';
+import {
+  layout,
+  opacity,
+  spacing,
+  useResponsiveProp,
+  useRestyle,
+  color,
+  composeRestyleFunctions,
+  SpacingProps,
+  LayoutProps,
+  OpacityProps,
+  createRestyleComponent,
+  ColorProps,
+} from '@shopify/restyle';
 import { FC } from 'react';
 import { SvgProps } from 'react-native-svg';
 import { Theme } from '../../../utils/theme/theme';
@@ -7,35 +20,38 @@ import { SvgIconProps } from './SvgIcon.types';
 
 export const DEFAULT_SVG_ICON_SIZE = 24;
 
-export type RestyleProps = ColorProps<Theme> & SpacingProps<Theme> & LayoutProps<Theme> & OpacityProps<Theme>
+export type RestyleProps = ColorProps<Theme> &
+  SpacingProps<Theme> &
+  LayoutProps<Theme> &
+  OpacityProps<Theme>;
 
 type Props = RestyleProps & {
-    color?: keyof Theme['colors'];
-}
+  color?: keyof Theme['colors'];
+};
 
 export const SvgIcon = ({
-    icon: Icon,
-    height: receivedHeight = DEFAULT_SVG_ICON_SIZE,
-    width: receivedWidth = DEFAULT_SVG_ICON_SIZE,
-    ...rest
+  icon: Icon,
+  height: receivedHeight = DEFAULT_SVG_ICON_SIZE,
+  width: receivedWidth = DEFAULT_SVG_ICON_SIZE,
+  ...rest
 }: SvgIconProps) => {
-    const height = useResponsiveProp(receivedHeight);
-    const width = useResponsiveProp(receivedWidth);
+  const height = useResponsiveProp(receivedHeight);
+  const width = useResponsiveProp(receivedWidth);
 
-    const restyleFunctions = composeRestyleFunctions<Theme, RestyleProps>([
-        spacing, 
-        layout, 
-        opacity, 
-        color
-    ]);
+  const restyleFunctions = composeRestyleFunctions<Theme, RestyleProps>([
+    spacing,
+    layout,
+    opacity,
+    color,
+  ]);
 
-    // @ts-ignore
-    const rootProps = useRestyle(restyleFunctions, rest);
+  // @ts-ignore
+  const rootProps = useRestyle(restyleFunctions, rest);
 
-    const Component = createRestyleComponent<RestyleProps, Theme>(
-      [spacing, layout, opacity, color],
-      Icon
-    )
+  const Component = createRestyleComponent<RestyleProps, Theme>(
+    [spacing, layout, opacity, color],
+    Icon
+  );
 
-    return <Component {...{ width, height, ...rootProps }} />;
+  return <Component {...{ width, height, ...rootProps }} />;
 };

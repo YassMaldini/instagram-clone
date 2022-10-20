@@ -5,4 +5,4 @@ export interface UseCommentsOptions {
 export type QueryCommentsOptions = {
   mediaId: string;
   form: object;
-}
+};

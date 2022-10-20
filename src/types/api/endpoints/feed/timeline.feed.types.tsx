@@ -1,4 +1,4 @@
-import { FeedMedia_or_ad } from "./media.feed.types";
+import { FeedMedia_or_ad } from './media.feed.types';
 
 export interface TimelineFeedSuccessResponseData {
   num_results: number;
@@ -18,13 +18,13 @@ export interface TimelineFeedSuccessResponseData {
 export interface TimelineFeed extends TimelineFeedResponseMedia_or_ad {
   image_versions2: {
     candidates: {
-      width: number,
-      height: number,
-      url: string,
-      scans_profile: string,
-      estimated_scans_sizes: number[]
-    }[]
-  }
+      width: number;
+      height: number;
+      url: string;
+      scans_profile: string;
+      estimated_scans_sizes: number[];
+    }[];
+  };
 }
 export interface TimelineFeedResponseFeedItemsItem {
   media_or_ad: FeedMedia_or_ad;

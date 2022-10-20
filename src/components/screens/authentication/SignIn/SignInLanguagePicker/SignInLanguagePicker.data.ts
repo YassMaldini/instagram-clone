@@ -1,4 +1,4 @@
 export const LANGUAGES = Object.freeze({
-  'French': 'fr',
-  'English': 'en'
-})
+  French: 'fr',
+  English: 'en',
+});

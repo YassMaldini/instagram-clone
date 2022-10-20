@@ -1,5 +1,5 @@
-import { string } from "yup";
-import { FeedMedia_or_ad } from "./media.feed.types";
+import { string } from 'yup';
+import { FeedMedia_or_ad } from './media.feed.types';
 
 export interface ChainingExperienceFeedResponseRootObject {
   num_results: number;
@@ -14,13 +14,13 @@ export interface ChainingExperienceFeedResponseRootObject {
 export interface ChainingExperienceFeed extends ChainingExperienceFeedResponseMedia_or_ad {
   image_versions2: {
     candidates: {
-      width: number,
-      height: number,
-      url: string,
-      scans_profile: string,
-      estimated_scans_sizes: number[]
-    }[]
-  }
+      width: number;
+      height: number;
+      url: string;
+      scans_profile: string;
+      estimated_scans_sizes: number[];
+    }[];
+  };
 }
 export interface ChainingExperienceFeedResponseFeedItemsItem {
   media_or_ad: FeedMedia_or_ad;
@@ -138,8 +138,8 @@ export interface ChainingExperienceFeedResponseUser {
   latest_reel_media?: number;
   has_highlight_reels?: boolean;
   transparency_product_enabled?: boolean;
-  account_badges?: string[],
-  fan_club_info?: object
+  account_badges?: string[];
+  fan_club_info?: object;
 }
 export interface ChainingExperienceFeedResponseFriendship_status {
   following: boolean;

@@ -1,4 +1,4 @@
-import RootState from "../store.types";
+import RootState from '../store.types';
 
 export const profileSelector = ({ authentication: reducer }: RootState) => reducer.profile;
 

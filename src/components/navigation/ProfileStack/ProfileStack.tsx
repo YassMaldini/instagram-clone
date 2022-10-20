@@ -7,12 +7,11 @@ import { Navigator, Screen } from './ProfileStack.navigator';
 const ProfileStack = () => {
   return (
     <Navigator
-      initialRouteName='ProfileScreen'
+      initialRouteName="ProfileScreen"
       screenOptions={{
         headerShown: false,
-        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default'
-      }}
-    >
+        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default',
+      }}>
       <Screen name="ProfileScreen" component={ProfileScreen} />
     </Navigator>
   );

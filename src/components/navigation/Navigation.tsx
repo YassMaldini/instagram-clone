@@ -14,14 +14,14 @@ const Navigation = (): JSX.Element => {
       ...DarkTheme,
       colors: {
         ...DarkTheme.colors,
-        background: theme.colors.primaryBackground
-      }
+        background: theme.colors.primaryBackground,
+      },
     };
   }, []);
 
   return (
     <NavigationContainer theme={navigationTheme}>
-      <SafeAreaProvider style={{backgroundColor: theme.colors.primaryBackground}}>
+      <SafeAreaProvider style={{ backgroundColor: theme.colors.primaryBackground }}>
         <RootStack />
       </SafeAreaProvider>
     </NavigationContainer>

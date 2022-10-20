@@ -1,3 +1,1 @@
-export type ResponseHeaders = {
-  
-}
+export type ResponseHeaders = {};

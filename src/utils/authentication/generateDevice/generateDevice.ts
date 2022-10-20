@@ -1,5 +1,5 @@
-import builds from '../../api/samples/builds.json'
-import devices from '../../api/samples/devices.json'
+import builds from '../../api/samples/builds.json';
+import devices from '../../api/samples/devices.json';
 import { Chance } from 'chance';
 
 const generateDevice = (seed: string) => {
@@ -14,9 +14,9 @@ const generateDevice = (seed: string) => {
     uuid: chance.guid(),
     phoneId: chance.guid(),
     adid: chance.guid(),
-    build: chance.pickone(builds)
-  }
-  return device
-}
+    build: chance.pickone(builds),
+  };
+  return device;
+};
 
-export default generateDevice
+export default generateDevice;

@@ -5,7 +5,11 @@ import { SvgProps } from 'react-native-svg';
 
 import { Theme } from '../../../utils/theme/theme';
 
-export interface SvgIconProps extends ColorProps<Theme>, SpacingProps<Theme>, LayoutProps<Theme>, OpacityProps<Theme> {
-    icon: FC<SvgProps>;
-    style?: ViewStyle;
+export interface SvgIconProps
+  extends ColorProps<Theme>,
+    SpacingProps<Theme>,
+    LayoutProps<Theme>,
+    OpacityProps<Theme> {
+  icon: FC<SvgProps>;
+  style?: ViewStyle;
 }

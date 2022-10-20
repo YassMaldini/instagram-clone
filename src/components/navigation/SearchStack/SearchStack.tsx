@@ -8,12 +8,11 @@ import { Navigator, Screen } from './SearchStack.navigator';
 const SearchStack = () => {
   return (
     <Navigator
-      initialRouteName='SearchScreen'
+      initialRouteName="SearchScreen"
       screenOptions={{
         headerShown: false,
-        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default'
-      }}
-    >
+        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default',
+      }}>
       <Screen name="SearchScreen" component={SearchScreen} />
       <Screen name="ExploreScreen" component={ExploreScreen} />
     </Navigator>

@@ -1,23 +1,19 @@
-import { FlashList } from "@shopify/flash-list"
-import { useCallback, useContext } from "react"
-import { ActivityIndicator } from "react-native"
-import useUserFeed from "../../../../../../hooks/feed/useUserFeed/useUserFeed"
-import { UserInfoResponseRootObject } from "../../../../../../types/api/endpoints/users/info.user.types"
-import { userFeedSample } from "../../../../../../utils/api/samples/userFeedSample"
-import FeedGridSimpleItem from "../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem"
-import Box from "../../../../../designSystem/Box/Box"
-import Text from "../../../../../designSystem/Text/Text"
-import { ProfileScreenContext } from "../../ProfileScreen.context"
+import { FlashList } from '@shopify/flash-list';
+import { useCallback, useContext } from 'react';
+import { ActivityIndicator } from 'react-native';
+import useUserFeed from '../../../../../../hooks/feed/useUserFeed/useUserFeed';
+import { UserInfoResponseRootObject } from '../../../../../../types/api/endpoints/users/info.user.types';
+import { userFeedSample } from '../../../../../../utils/api/samples/userFeedSample';
+import FeedGridSimpleItem from '../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
+import Box from '../../../../../designSystem/Box/Box';
+import Text from '../../../../../designSystem/Text/Text';
+import { ProfileScreenContext } from '../../ProfileScreen.context';
 
 const ProfileUserFeedTab = () => {
-  const { userInfos } = useContext(ProfileScreenContext)
-  const userPk = (userInfos as UserInfoResponseRootObject).user.pk
+  const { userInfos } = useContext(ProfileScreenContext);
+  const userPk = (userInfos as UserInfoResponseRootObject).user.pk;
 
-  const {
-    data,
-    isLoading,
-    error
-  } = useUserFeed({ userPk })
+  const { data, isLoading, error } = useUserFeed({ userPk });
 
   const renderEmptyComponent = useCallback(() => {
     if (isLoading) {
@@ -29,13 +25,12 @@ const ProfileUserFeedTab = () => {
     }
     return (
       <Box flex={1} paddingVertical="xl">
-        <Text 
-          textAlign="center" 
-          fontSize={24} 
+        <Text
+          textAlign="center"
+          fontSize={24}
           fontWeight="800"
           marginBottom="m"
-          paddingHorizontal="xxxl"
-        >
+          paddingHorizontal="xxxl">
           Profile
         </Text>
         <Text marginBottom="m" paddingHorizontal="xl" textAlign="center" color="secondaryText">
@@ -55,7 +50,7 @@ const ProfileUserFeedTab = () => {
         numColumns={3}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default ProfileUserFeedTab
+export default ProfileUserFeedTab;

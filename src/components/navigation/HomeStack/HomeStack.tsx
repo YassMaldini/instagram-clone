@@ -6,12 +6,11 @@ import { Navigator, Screen } from './HomeStack.navigator';
 const HomeStack = () => {
   return (
     <Navigator
-      initialRouteName='HomeScreen'
+      initialRouteName="HomeScreen"
       screenOptions={{
         headerShown: false,
-        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default'
-      }}
-    >
+        animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default',
+      }}>
       <Screen name="HomeScreen" component={HomeScreen} />
       <Screen name="Comments" component={Comments} />
     </Navigator>

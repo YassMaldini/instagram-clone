@@ -1,5 +1,5 @@
-import { ImageSourcePropType } from "react-native";
-import { Theme } from "../../../../../utils/theme/theme";
+import { ImageSourcePropType } from 'react-native';
+import { Theme } from '../../../../../utils/theme/theme';
 
 export interface FeedCardModalRowButtonProps {
   imageSource: ImageSourcePropType;

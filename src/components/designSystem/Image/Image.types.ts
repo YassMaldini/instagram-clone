@@ -3,12 +3,10 @@ import { ImageProps as RNImageProps } from 'react-native';
 
 import { Theme } from '../../../utils/theme/theme';
 
-export type ImageProps = 
-    SpacingProps<Theme> &
-    LayoutProps<Theme> &
-    BackgroundColorProps<Theme> &
-    BorderProps<Theme> &
-    Omit<RNImageProps, 'height' | 'width' | 'borderRadius'> &
-    {
-        hasStory?: boolean;
-    };
+export type ImageProps = SpacingProps<Theme> &
+  LayoutProps<Theme> &
+  BackgroundColorProps<Theme> &
+  BorderProps<Theme> &
+  Omit<RNImageProps, 'height' | 'width' | 'borderRadius'> & {
+    hasStory?: boolean;
+  };

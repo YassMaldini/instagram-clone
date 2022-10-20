@@ -2,4 +2,4 @@ export interface UseUserInfosOptions {
   userPk: number;
 }
 
-export type QueryUserInfosOptions = UseUserInfosOptions
+export type QueryUserInfosOptions = UseUserInfosOptions;

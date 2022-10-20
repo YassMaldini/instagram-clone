@@ -1,5 +1,5 @@
-import combinedReducer from "./combinedReducer";
+import combinedReducer from './combinedReducer';
 
-type RootState = ReturnType<typeof combinedReducer>
+type RootState = ReturnType<typeof combinedReducer>;
 
-export default RootState
+export default RootState;

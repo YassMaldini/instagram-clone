@@ -1,12 +1,16 @@
-import { APP_VERSION_CODE, BLOKS_VERSION_ID, FACEBOOK_ANALYTICS_APPLICATION_ID } from "instagram-private-api/dist/core/constants"
-import { random } from "lodash"
-import { useMemo } from "react"
-import useDevice from "../useDevice/useDevice"
-import { Device } from "../../../types/models/device/device.types"
-import { Chance } from "chance"
+import {
+  APP_VERSION_CODE,
+  BLOKS_VERSION_ID,
+  FACEBOOK_ANALYTICS_APPLICATION_ID,
+} from 'instagram-private-api/dist/core/constants';
+import { random } from 'lodash';
+import { useMemo } from 'react';
+import useDevice from '../useDevice/useDevice';
+import { Device } from '../../../types/models/device/device.types';
+import { Chance } from 'chance';
 
 const useHeaders = () => {
-  const device = useDevice()
+  const device = useDevice();
 
   // console.log('device headers => ', device)
 
@@ -28,29 +32,25 @@ const useHeaders = () => {
     //   deviceId,
     //   authorization
     // } = useMemo(() => state as State, [state])
-    const {
-      adid,
-      build,
-      deviceId,
-      deviceString,
-      phoneId,
-      uuid
-    } = useMemo(() => device as Device, [device])
+    const { adid, build, deviceId, deviceString, phoneId, uuid } = useMemo(
+      () => device as Device,
+      [device]
+    );
 
     const generateTemporaryGuid = (seed: string, lifetime: number) => {
       return new Chance(`${seed}${deviceId}${Math.round(Date.now() / lifetime)}`).guid();
-    }
+    };
     const clientSessionIdLifetime: number = 1200000;
     const pigeonSessionIdLifetime: number = 1200000;
 
-    const clientSessionId = generateTemporaryGuid('clientSessionId', clientSessionIdLifetime)
-    const pigeonSessionId = generateTemporaryGuid('pigeonSessionId', pigeonSessionIdLifetime)
+    const clientSessionId = generateTemporaryGuid('clientSessionId', clientSessionIdLifetime);
+    const pigeonSessionId = generateTemporaryGuid('pigeonSessionId', pigeonSessionIdLifetime);
 
-    const language = 'fr_FR'
-    const capabilitiesHeader = '3brTvwE='
-  
+    const language = 'fr_FR';
+    const capabilitiesHeader = '3brTvwE=';
+
     // const mid = extractCookieFromCookieJar({ key: 'mid', cookieJar })?.value
-  
+
     const qeHeaders = {
       'User-Agent': `Instagram 121.0.0.29.119 Android (${deviceString}; ${language}; ${APP_VERSION_CODE})`,
       'X-Ads-Opt-Out': '0',
@@ -80,11 +80,11 @@ const useHeaders = () => {
       Authorization: undefined,
       Host: 'i.instagram.com',
       'Accept-Encoding': 'gzip',
-      Connection: 'close'
-    }
+      Connection: 'close',
+    };
 
     const qeHeaders2 = {
-      'Host': 'i.instagram.com',
+      Host: 'i.instagram.com',
       'X-Ig-App-Locale': language,
       'X-Ig-Device-Locale': language,
       'X-Ig-Mapped-Locale': language,
@@ -105,7 +105,7 @@ const useHeaders = () => {
       'X-Ig-Connection-Type': 'WIFI',
       'X-Ig-Capabilities': capabilitiesHeader,
       'X-Ig-App-Id': '567067343352428',
-      'Priority': 'u=3',
+      Priority: 'u=3',
       // 'User-Agent': 'Instagram 237.0.0.14.102 Android (22/5.1.1; 240dpi; 540x960; samsung; SM-J200F; j2lte; universal3475; fr_FR; 373310554)',
       'User-Agent': `Instagram 121.0.0.29.119 Android (${deviceString}; ${language}; ${APP_VERSION_CODE})`,
       'Accept-Language': 'fr-FR, en-US',
@@ -115,13 +115,13 @@ const useHeaders = () => {
       'Accept-Encoding': 'gzip, deflate',
       'X-Fb-Http-Engine': 'Liger',
       'X-Fb-Client-Ip': 'True',
-      'X-Fb-Server-Cluster': 'True'
-    }
-  
-    return { qeHeaders, qeHeaders2 }
-  } else {
-    return {}
-  }
-}
+      'X-Fb-Server-Cluster': 'True',
+    };
 
-export default useHeaders
+    return { qeHeaders, qeHeaders2 };
+  } else {
+    return {};
+  }
+};
+
+export default useHeaders;

@@ -1,7 +1,7 @@
-import { CookieJar } from "request";
-import * as Constants from "instagram-private-api/dist/core/constants"
-import { HEADERS } from "apisauce";
-import { Secrets } from "../../types/models/authentication/secrets.types";
+import { CookieJar } from 'request';
+import * as Constants from 'instagram-private-api/dist/core/constants';
+import { HEADERS } from 'apisauce';
+import { Secrets } from '../../types/models/authentication/secrets.types';
 
 /* Including some useless headers */
 // export const HEADERS_TO_SECRETS_KEYS = Object.freeze({
@@ -26,14 +26,20 @@ import { Secrets } from "../../types/models/authentication/secrets.types";
 //   'Authorization': 'authorization'
 // })
 
-export const getCookie = ({ cookies, cookieName }: { cookies: string, cookieName: string }): string => {
+export const getCookie = ({
+  cookies,
+  cookieName,
+}: {
+  cookies: string;
+  cookieName: string;
+}): string => {
   let cookie: any = {};
   cookies.split(',').forEach((el: string) => {
-    let [key,value] = el.split('=');
+    let [key, value] = el.split('=');
     cookie[key.trim()] = value.split(';')[0];
-  })
+  });
   return cookie[cookieName];
-}
+};
 
 export const HEADERS_TO_SECRETS_KEYS = Object.freeze({
   'ig-set-authorization': 'authorization',
@@ -46,14 +52,14 @@ export const HEADERS_TO_SECRETS_KEYS = Object.freeze({
   'ig-set-ig-u-shbid': 'shbid',
   'ig-set-ig-u-shbts': 'shbts',
   'ig-set-ig-u-ds-user-id': 'ds_user_id',
-  'ig-set-ig-u-rur': 'rur'
-})
+  'ig-set-ig-u-rur': 'rur',
+});
 
 export const transformHeadersToSecrets = (headers: HEADERS) =>
   Object.entries(HEADERS_TO_SECRETS_KEYS).reduce(
     (acc, [headerKey, secretKey]) => ({
       ...acc,
-      [secretKey]: headers?.[headerKey]
+      [secretKey]: headers?.[headerKey],
     }),
     {} as Secrets
   );
@@ -62,7 +68,8 @@ export const transformSecretsToHeaders = (secrets: Secrets) =>
   Object.entries(HEADERS_TO_SECRETS_KEYS).reduce(
     (acc, [headerKey, secretKey]) => ({
       ...acc,
-      [headerKey.replace(secretKey === 'igWWWClaim' ? 'set-' : 'ig-set-', '')]: secrets[secretKey as keyof Secrets]
+      [headerKey.replace(secretKey === 'igWWWClaim' ? 'set-' : 'ig-set-', '')]:
+        secrets[secretKey as keyof Secrets],
     }),
     {} as HEADERS
   );

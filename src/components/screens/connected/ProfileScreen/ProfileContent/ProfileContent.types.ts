@@ -1,4 +1,4 @@
 export enum ProfileContentTab {
   Posts = 'posts',
-  Tags = 'tags'
+  Tags = 'tags',
 }

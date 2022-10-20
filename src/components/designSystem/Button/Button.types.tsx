@@ -1,27 +1,34 @@
-import { BackgroundColorProps, BorderProps, ColorProps, LayoutProps, OpacityProps, SpacingProps } from "@shopify/restyle";
-import { ReactNode } from "react";
-import { PressableProps } from "react-native";
-import { Theme } from "../../../utils/theme/theme";
+import {
+  BackgroundColorProps,
+  BorderProps,
+  ColorProps,
+  LayoutProps,
+  OpacityProps,
+  SpacingProps,
+} from '@shopify/restyle';
+import { ReactNode } from 'react';
+import { PressableProps } from 'react-native';
+import { Theme } from '../../../utils/theme/theme';
 
 export enum ButtonColors {
   Primary = 'primary',
   PrimaryOutline = 'primaryOutline',
-  PrimaryText = 'primaryText'
+  PrimaryText = 'primaryText',
 }
 
 export enum ButtonVariants {
   Contained = 'contained',
-  Text = 'text'
+  Text = 'text',
 }
 
 export enum ButtonSizes {
   Small = 'small',
-  Medium = 'medium'
+  Medium = 'medium',
 }
 
 export type ButtonPaddingData = {
   [size in ButtonSizes]: keyof Theme['spacing'];
-}
+};
 
 export interface ButtonBaseContrastColors {
   background: keyof Theme['colors'];
@@ -35,13 +42,13 @@ export type ButtonColorsData = {
   };
 };
 
-export interface ButtonProps extends
-  SpacingProps<Theme>,
-  LayoutProps<Theme>,
-  BorderProps<Theme>,
-  OpacityProps<Theme>,
-  BackgroundColorProps<Theme>,
-  Omit<PressableProps, 'style'> {
+export interface ButtonProps
+  extends SpacingProps<Theme>,
+    LayoutProps<Theme>,
+    BorderProps<Theme>,
+    OpacityProps<Theme>,
+    BackgroundColorProps<Theme>,
+    Omit<PressableProps, 'style'> {
   loading?: boolean;
   disabled?: boolean;
   children: ReactNode;

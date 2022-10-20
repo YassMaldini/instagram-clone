@@ -1,10 +1,9 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
-const getSignInFormSchema = () => (
+const getSignInFormSchema = () =>
   yup.object().shape({
     username: yup.string().required(),
-    password: yup.string().required()
-  })
-)
+    password: yup.string().required(),
+  });
 
-export default getSignInFormSchema
+export default getSignInFormSchema;

@@ -1,10 +1,13 @@
-import { BLOKS_VERSION_ID } from "instagram-private-api/dist/core/constants";
-import { random } from "lodash";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { deviceSelector, secretsSelector } from "../../../store/authentication/authenticationReducerSelectors";
-import api from "../../../utils/api/api";
-import useCurrentUser from "../useCurrentUser/useCurrentUser";
+import { BLOKS_VERSION_ID } from 'instagram-private-api/dist/core/constants';
+import { random } from 'lodash';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  deviceSelector,
+  secretsSelector,
+} from '../../../store/authentication/authenticationReducerSelectors';
+import api from '../../../utils/api/api';
+import useCurrentUser from '../useCurrentUser/useCurrentUser';
 
 const useIsSignedIn = () => {
   const secrets = useSelector(secretsSelector);
@@ -12,14 +15,13 @@ const useIsSignedIn = () => {
   // const currentUser = useCurrentUser(secrets);
 
   return useMemo(() => {
-    const isSignedId = Boolean(secrets && device)
-    if (isSignedId && (secrets && device)) {
+    const isSignedId = Boolean(secrets && device);
+    if (isSignedId && secrets && device) {
+      const language = 'fr_FR';
+      const capabilitiesHeader = '3brTv10=';
 
-      const language = 'fr_FR'
-      const capabilitiesHeader = '3brTv10='
-  
       api.setHeaders({
-        'Host': 'i.instagram.com',
+        Host: 'i.instagram.com',
         'X-Ads-Opt-Out': '0',
         'X-Google-Ad-Id': device.adid,
         'X-Device-Id': device.uuid,
@@ -47,10 +49,10 @@ const useIsSignedIn = () => {
         'X-Ig-Connection-Type': 'WIFI',
         'X-Ig-Capabilities': capabilitiesHeader,
         'X-Ig-App-Id': '567067343352429',
-        'Priority': 'u=0',
+        Priority: 'u=0',
         'User-Agent': `Instagram 237.0.0.14.102 Android (${device.deviceString}; ${language}; 373310554)`,
         'Accept-Language': 'fr-FR, en-US',
-        'Authorization': secrets.authorization,
+        Authorization: secrets.authorization,
         'X-Mid': secrets.mid,
         'Ig-U-Shbid': secrets.shbid,
         'Ig-U-Shbts': secrets.shbts,
@@ -62,12 +64,12 @@ const useIsSignedIn = () => {
         'Accept-Encoding': 'gzip, deflate',
         'X-Fb-Http-Engine': 'Liger',
         'X-Fb-Client-Ip': 'True',
-        'X-Fb-Server-Cluster': 'True'
-      })
+        'X-Fb-Server-Cluster': 'True',
+      });
     }
-    
-    return isSignedId
-  }, [secrets, device]);
-}
 
-export default useIsSignedIn
+    return isSignedId;
+  }, [secrets, device]);
+};
+
+export default useIsSignedIn;

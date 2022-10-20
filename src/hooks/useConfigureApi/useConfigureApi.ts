@@ -1,16 +1,23 @@
-import { ApiResponse } from "apisauce"
-import { APP_VERSION_CODE, BLOKS_VERSION_ID } from "instagram-private-api/dist/core/constants"
-import { random } from "lodash"
-import { useCallback, useEffect, useMemo } from "react"
-import { useQueryClient } from "react-query"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { signOut } from "../../store/authentication/authenticationActions/authenticationActions"
-import { deviceSelector, profileSelector, secretsSelector } from "../../store/authentication/authenticationReducerSelectors"
-import { CurrentUserSuccessResponseData } from "../../types/api/endpoints/accounts/currentuser.types"
-import { Device } from "../../types/models/device/device.types"
-import api, { authenticationApi } from "../../utils/api/api"
-import { HEADERS_TO_SECRETS_KEYS, transformSecretsToHeaders } from "../../utils/authentication/headersToSecrets"
+import { ApiResponse } from 'apisauce';
+import { APP_VERSION_CODE, BLOKS_VERSION_ID } from 'instagram-private-api/dist/core/constants';
+import { random } from 'lodash';
+import { useCallback, useEffect, useMemo } from 'react';
+import { useQueryClient } from 'react-query';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { signOut } from '../../store/authentication/authenticationActions/authenticationActions';
+import {
+  deviceSelector,
+  profileSelector,
+  secretsSelector,
+} from '../../store/authentication/authenticationReducerSelectors';
+import { CurrentUserSuccessResponseData } from '../../types/api/endpoints/accounts/currentuser.types';
+import { Device } from '../../types/models/device/device.types';
+import api, { authenticationApi } from '../../utils/api/api';
+import {
+  HEADERS_TO_SECRETS_KEYS,
+  transformSecretsToHeaders,
+} from '../../utils/authentication/headersToSecrets';
 
 const PREFIX = '[useConfigureApi]';
 
@@ -30,12 +37,8 @@ export const useConfigureApi = () => {
   const monitor = useCallback(
     (response: ApiResponse<any, any>) => {
       if (response.status === 403) {
-        console.log(
-          PREFIX,
-          'Detected 403 status code... Request url was:',
-          response.config?.url
-        );
-        signOut(queryClient)(dispatch)
+        console.log(PREFIX, 'Detected 403 status code... Request url was:', response.config?.url);
+        signOut(queryClient)(dispatch);
         // (async () => {
         //     await queryClient.invalidateQueries(USE_VALIDATE_TOKEN_QUERY_KEY);
         // })();
@@ -65,7 +68,7 @@ export const useConfigureApi = () => {
     if (secrets && device) {
       console.log(PREFIX, 'Adding secrets headers...');
       api.setHeaders({
-        'Host': 'i.instagram.com',
+        Host: 'i.instagram.com',
         'X-Ads-Opt-Out': '0',
         'X-Google-Ad-Id': device.adid,
         'X-Device-Id': device.uuid,
@@ -93,10 +96,10 @@ export const useConfigureApi = () => {
         'X-Ig-Connection-Type': 'WIFI',
         'X-Ig-Capabilities': capabilitiesHeader,
         'X-Ig-App-Id': '567067343352429',
-        'Priority': 'u=0',
+        Priority: 'u=0',
         'User-Agent': `Instagram 237.0.0.14.102 Android (${device.deviceString}; ${language}; 373310554)`,
         'Accept-Language': 'fr-FR, en-US',
-        'Authorization': secrets.authorization,
+        Authorization: secrets.authorization,
         'X-Mid': secrets.mid,
         'Ig-U-Shbid': secrets.shbid,
         'Ig-U-Shbts': secrets.shbts,
@@ -108,7 +111,7 @@ export const useConfigureApi = () => {
         'Accept-Encoding': 'gzip, deflate',
         'X-Fb-Http-Engine': 'Liger',
         'X-Fb-Client-Ip': 'True',
-        'X-Fb-Server-Cluster': 'True'
+        'X-Fb-Server-Cluster': 'True',
       });
     }
     // Secrets got deleted. → Remove headers.
@@ -122,5 +125,5 @@ export const useConfigureApi = () => {
 
   // api.setHeaders({...headers as HEADERS})
 
-  return api
-}
+  return api;
+};
