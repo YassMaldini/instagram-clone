@@ -2,7 +2,7 @@ import { FlashList } from "@shopify/flash-list";
 import { useContext, useRef } from "react";
 import { Dimensions, ScrollView } from "react-native";
 import Carousel from "react-native-snap-carousel";
-import { ChainingExperienceFeedResponseFeedItemsItem } from "../../../types/api/endpoints/feed/chainingExperience.types";
+import { ChainingExperienceFeedResponseFeedItemsItem } from "../../../types/api/endpoints/feed/chainingExperience.feed.types";
 import Box from "../../designSystem/Box/Box"
 import Text from "../../designSystem/Text/Text"
 import { ExploreScreenContext } from "../../screens/connected/ExploreScreen/ExploreScreen.context";

@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native"
 import { ResizeMode } from "expo-av"
 import { Dimensions } from "react-native"
-import { TopicalExploreFeedResponseSectionalItemsItem } from "../../../types/api/endpoints/feed/topicalDiscover.types"
+import { TopicalExploreFeedResponseSectionalItemsItem } from "../../../types/api/endpoints/feed/topicalDiscover.feed.types"
 import Box from "../../designSystem/Box/Box"
 import Image from "../../designSystem/Image/Image"
 import Pressable from "../../designSystem/Pressable/Pressable"

@@ -1,13 +1,15 @@
 import { useNavigation } from "@react-navigation/native"
 import { Dimensions } from "react-native"
-import { TopicalExploreFeedResponseMedia } from "../../../types/api/endpoints/feed/topicalDiscover.types"
+import { TopicalExploreFeedResponseCarouselMediaItem, TopicalExploreFeedResponseMedia } from "../../../types/api/endpoints/feed/topicalDiscover.feed.types"
+import { UserFeedResponseCarouselMediaItem, UserFeedResponseItemsItem } from "../../../types/api/endpoints/feed/user.feed.types"
+import { UsertagsFeedResponseItemsItem } from "../../../types/api/endpoints/feed/usertags.feed.types"
 import Box from "../../designSystem/Box/Box"
 import Image from "../../designSystem/Image/Image"
 import Pressable from "../../designSystem/Pressable/Pressable"
 import { PressableProps } from "../../designSystem/Pressable/Pressable.types"
 import { SearchScreenProps } from "../../screens/connected/SearchScreen/SearchScreen.types"
 
-const FeedGridSimpleItem = (media: TopicalExploreFeedResponseMedia) => {
+const FeedGridSimpleItem = (media: TopicalExploreFeedResponseMedia | UserFeedResponseItemsItem | UsertagsFeedResponseItemsItem) => {
   const { navigate } = useNavigation<SearchScreenProps['navigation']>()
 
   const THIRD = (Dimensions.get('window').width / 3)
@@ -16,10 +18,10 @@ const FeedGridSimpleItem = (media: TopicalExploreFeedResponseMedia) => {
 
   return (
     <Pressable 
-      backgroundColor="highlightBackground" 
+      backgroundColor="primaryButton"
       width={SIZE} 
       height={SIZE}
-      style={{ marginBottom: MARGIN }}
+      style={{ marginBottom: MARGIN, marginRight: MARGIN }}
       onPress={() => navigate('ExploreScreen', { mediaId: media.id })}
     >
       {media.media_type === 8 && media.carousel_media &&

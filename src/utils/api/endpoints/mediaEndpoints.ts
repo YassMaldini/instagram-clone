@@ -2,9 +2,9 @@ import { ErrorResponseData } from "../../../types/api/endpoints/endpoints.types"
 import api from "../api";
 import qs from 'qs';
 import { MediaSuccessResponseData } from "../../../types/api/endpoints/media/media.types";
-import { MediaCommentsFeedResponse } from "../../../types/api/endpoints/media/comments.types";
+import { MediaCommentsFeedResponse } from "../../../types/api/endpoints/media/comments.media.types";
 import { QueryCommentsOptions } from "../../../hooks/feed/useComments/useComments.types";
-import { MediaCommentResponse } from "../../../types/api/endpoints/media/comment.types";
+import { MediaCommentResponse } from "../../../types/api/endpoints/media/comment.media.types";
 
 const MEDIA_ENDPOINTS = Object.freeze({
   like: ({ mediaId, data }: { mediaId: string, data: any }) =>

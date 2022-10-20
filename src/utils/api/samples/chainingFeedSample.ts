@@ -1,4 +1,4 @@
-import { ChainingExperienceFeedResponseRootObject } from "../../../types/api/endpoints/feed/chainingExperience.types";
+import { ChainingExperienceFeedResponseRootObject } from "../../../types/api/endpoints/feed/chainingExperience.feed.types";
 
 export const chainingFeedSample: ChainingExperienceFeedResponseRootObject = {
   "items": [

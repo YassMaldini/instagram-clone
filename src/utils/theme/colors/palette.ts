@@ -25,5 +25,6 @@ export const PALETTE = Object.freeze({
   disabledText: "#BCC0C4",
 
   elevatedSeparator: '#343434',
-  errorOrDestructive: '#ed4956'
+  errorOrDestructive: '#ed4956',
+  link: "#e0f1ff"
 })

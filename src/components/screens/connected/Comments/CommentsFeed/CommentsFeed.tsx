@@ -23,9 +23,9 @@ import { ButtonColors } from "../../../../designSystem/Button/Button.types";
 import { useMutation } from "react-query";
 import { commentMutation } from "./CommentsFeed.actions";
 import { Device } from "../../../../../types/models/device/device.types";
-import { MediaCommentsFeedResponseCommentsItem } from "../../../../../types/api/endpoints/media/comments.types";
+import { MediaCommentsFeedResponseCommentsItem } from "../../../../../types/api/endpoints/media/comments.media.types";
 import useComments from "../../../../../hooks/feed/useComments/useComments";
-import { MediaCommentResponseComment } from "../../../../../types/api/endpoints/media/comment.types";
+import { MediaCommentResponseComment } from "../../../../../types/api/endpoints/media/comment.media.types";
 import moment from "moment";
 
 const CommentsFeed = () => {

@@ -1,11 +1,11 @@
-import { backgroundColor, color, composeRestyleFunctions, createRestyleComponent, layout, opacity, spacing, useRestyle } from "@shopify/restyle"
+import { backgroundColor, border, color, composeRestyleFunctions, createRestyleComponent, layout, opacity, spacing, useRestyle } from "@shopify/restyle"
 import { ActivityIndicator, Pressable } from "react-native"
 import { Theme } from "../../../utils/theme/theme"
 import Box from "../Box/Box"
 import Text from "../Text/Text"
-import { ButtonColors, ButtonProps, ButtonVariants } from "./Button.types"
+import { ButtonColors, ButtonProps, ButtonSizes, ButtonVariants } from "./Button.types"
 import { BackgroundColorProps, ColorProps, LayoutProps, OpacityProps, SpacingProps } from "@shopify/restyle";
-import { getButtonBackgroundColor, getButtonTextColor } from "./Button.theme"
+import { BUTTON_HORIZONTAL_PADDING, BUTTON_VERTICAL_PADDING, getButtonBackgroundColor, getButtonTextColor } from "./Button.theme"
 
 type RestyleProps =
   SpacingProps<Theme> &
@@ -19,20 +19,17 @@ const Content = ({
   children,
   color = ButtonColors.Primary,
   variant = ButtonVariants.Text,
-  isBold = true
+  isBold = true,
+  ...rest
 }: ButtonProps) => {
 
   const isChildrenString = typeof children === 'string';
-
-  const buttonBackgroundColor = getButtonBackgroundColor({ disabled, color });
 
   const buttonTextColor = getButtonTextColor({ disabled, color, variant });
 
   if (loading) {
     return (
       <Box
-        borderRadius="s"
-        backgroundColor={buttonBackgroundColor}
         paddingVertical="m"
       >
         <ActivityIndicator size={24} color="#fff" />
@@ -41,11 +38,7 @@ const Content = ({
   }
 
   return (
-    <Box
-      borderRadius="s"
-      backgroundColor={buttonBackgroundColor}
-      paddingVertical="m"
-    >
+    <Box>
       {!isChildrenString && children}
       {isChildrenString &&
         <Text
@@ -67,6 +60,7 @@ const Button = ({
   children,
   color = ButtonColors.Primary,
   variant,
+  size = ButtonSizes.Small,
   isBold,
   ...rest
 }: ButtonProps) => {
@@ -79,23 +73,34 @@ const Button = ({
   ]);
 
   const Component = createRestyleComponent<ButtonProps, Theme>(
-    [spacing, layout, opacity, backgroundColor],
+    [spacing, layout, border, opacity, backgroundColor],
     Pressable
   )
 
   // @ts-ignore
   const rootProps = useRestyle(restyleFunctions, rest);
 
+  const buttonBackgroundColor = getButtonBackgroundColor({ disabled, color });
+
   return (
-    <Component {...{ onPress }} {...rootProps}>
-      <Content {...{
-        loading,
-        disabled,
-        children,
-        color,
-        variant,
-        isBold
-      }} />
+    <Component
+      backgroundColor={buttonBackgroundColor}
+      paddingHorizontal={BUTTON_HORIZONTAL_PADDING[size]}
+      paddingVertical={BUTTON_VERTICAL_PADDING[size]} 
+      borderRadius="s"
+      {...{ onPress }} 
+      {...rootProps}
+    >
+      <Content 
+        {...{
+          loading,
+          disabled,
+          children,
+          color,
+          variant,
+          isBold
+        }} 
+      />
     </Component>
   )
 }

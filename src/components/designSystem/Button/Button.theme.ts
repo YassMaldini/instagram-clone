@@ -1,5 +1,5 @@
 import { Theme } from "../../../utils/theme/theme";
-import { ButtonColors, ButtonColorsData, ButtonProps, ButtonVariants } from "./Button.types";
+import { ButtonColors, ButtonColorsData, ButtonPaddingData, ButtonProps, ButtonSizes, ButtonVariants } from "./Button.types";
 
 export const BUTTONS_COLORS = Object.freeze<ButtonColorsData>({
   [ButtonColors.Primary]: {
@@ -50,3 +50,13 @@ export const getButtonTextColor = ({
   const colors = BUTTONS_COLORS[color];
   return disabled && colors.disabled ? colors.disabled.text : colors.regular.text;
 };
+
+export const BUTTON_HORIZONTAL_PADDING = Object.freeze<ButtonPaddingData>({
+    [ButtonSizes.Small]: 'l',
+    [ButtonSizes.Medium]: 'l'
+});
+
+export const BUTTON_VERTICAL_PADDING = Object.freeze<ButtonPaddingData>({
+    [ButtonSizes.Small]: 's',
+    [ButtonSizes.Medium]: 'sToM'
+});

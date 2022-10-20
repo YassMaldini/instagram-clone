@@ -1,4 +1,4 @@
-import { MediaCommentResponse } from "../../../../../types/api/endpoints/media/comment.types"
+import { MediaCommentResponse } from "../../../../../types/api/endpoints/media/comment.media.types"
 import MEDIA_ENDPOINTS from "../../../../../utils/api/endpoints/mediaEndpoints";
 import { MediaCommentMutationVariables } from "./CommentsFeed.types";
 

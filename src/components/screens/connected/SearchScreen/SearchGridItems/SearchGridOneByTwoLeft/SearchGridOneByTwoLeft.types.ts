@@ -1,4 +1,4 @@
-import { TopicalExploreFeedResponseSectionalItemsItem } from "../../../../../../types/api/endpoints/feed/topicalDiscover.types";
+import { TopicalExploreFeedResponseSectionalItemsItem } from "../../../../../../types/api/endpoints/feed/topicalDiscover.feed.types";
 
 export interface SearchGridOneByTwoLeftProps {
   sectionalItems: TopicalExploreFeedResponseSectionalItemsItem;

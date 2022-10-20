@@ -11,7 +11,7 @@ const ScreenHeader = ({ showGoBackTouchable, title, rightElement }: ScreenHeader
   const { goBack } = useNavigation<ConnectedStackScreenProps['navigation']>()
 
   return (
-    <Box paddingVertical="xs" flexDirection="row" alignItems="center" justifyContent="space-between">
+    <Box paddingVertical="s" flexDirection="row" alignItems="center" justifyContent="space-between">
       {showGoBackTouchable &&
         <Pressable onPress={goBack}>
           <Image source={LeftArrow} width={54} height={54} />

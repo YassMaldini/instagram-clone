@@ -1,4 +1,4 @@
-import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.types";
+import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.feed.types";
 
 export const timelineSample: TimelineFeedSuccessResponseData = {
   "num_results": 6,

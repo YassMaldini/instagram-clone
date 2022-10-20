@@ -1,3 +1,3 @@
 export type ProfileStackParamsList = {
-  ProfileScreen: undefined;
+  ProfileScreen: { pk?: number };
 };

@@ -2,7 +2,7 @@ import { Chance } from "chance";
 import { useQuery } from "react-query"
 import { useSelector } from "react-redux";
 import { deviceSelector, secretsSelector } from "../../../store/authentication/authenticationReducerSelectors";
-import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.types"
+import { TimelineFeedSuccessResponseData } from "../../../types/api/endpoints/feed/timeline.feed.types"
 import { Secrets } from "../../../types/models/authentication/secrets.types";
 import { Device } from "../../../types/models/device/device.types";
 import api from "../../../utils/api/api";

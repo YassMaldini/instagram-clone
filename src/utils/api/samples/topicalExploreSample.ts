@@ -1,4 +1,4 @@
-import { TopicalExploreFeedResponseRootObject } from "../../../types/api/endpoints/feed/topicalDiscover.types";
+import { TopicalExploreFeedResponseRootObject } from "../../../types/api/endpoints/feed/topicalDiscover.feed.types";
 
 export const topicalExploreSample: TopicalExploreFeedResponseRootObject = {
   "sectional_items": [

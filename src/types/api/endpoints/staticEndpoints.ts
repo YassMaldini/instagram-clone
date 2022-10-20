@@ -5,6 +5,9 @@ export enum StaticPostEndpoints {
   // Account
   QeSync = '/qe/sync/',
 
+  // Discover
+  Ayml = '/discover/ayml/',
+
   // Feed
   ReelsTrayFeed = '/feed/reels_tray/',
   TimelineFeed = '/feed/timeline/'

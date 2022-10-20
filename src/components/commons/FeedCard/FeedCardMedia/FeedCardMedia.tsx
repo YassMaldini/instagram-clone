@@ -5,10 +5,10 @@ import { Dimensions } from "react-native"
 import Video from "../../../designSystem/Video/Video"
 import { ResizeMode } from "expo-av"
 import Carousel from "react-native-snap-carousel"
-import { TimelineFeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/timeline.types"
+import { TimelineFeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/timeline.feed.types"
 import Box from "../../../designSystem/Box/Box"
 import { FeedCardContext } from "../FeedCard.context"
-import { FeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/feed.types"
+import { FeedResponseCarouselMediaItem } from "../../../../types/api/endpoints/feed/media.feed.types"
 
 const FeedCardMedia = () => {
   const carousel = useRef<Carousel<FeedResponseCarouselMediaItem>>(null);

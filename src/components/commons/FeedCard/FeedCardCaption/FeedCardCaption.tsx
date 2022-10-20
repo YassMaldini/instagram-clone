@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from "react";
 import { NativeSyntheticEvent, TextLayoutEventData } from "react-native";
-import { TimelineFeedResponseCaption } from "../../../../types/api/endpoints/feed/timeline.types";
+import { TimelineFeedResponseCaption } from "../../../../types/api/endpoints/feed/timeline.feed.types";
 import Box from "../../../designSystem/Box/Box"
 import Pressable from "../../../designSystem/Pressable/Pressable"
 import Text from "../../../designSystem/Text/Text"

@@ -71,6 +71,7 @@ const SignInForm = () => {
             color="primaryText"
             backgroundColor="highlightBackground"
             marginBottom="m"
+            paddingVertical="sToM"
             {...{ value }} 
           />
         )}

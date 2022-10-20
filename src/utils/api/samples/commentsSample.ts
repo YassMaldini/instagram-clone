@@ -1,4 +1,4 @@
-import { MediaCommentsFeedResponse } from "../../../types/api/endpoints/media/comments.types";
+import { MediaCommentsFeedResponse } from "../../../types/api/endpoints/media/comments.media.types";
 
 export const commentsSample: MediaCommentsFeedResponse = {
   "comment_likes_enabled": true,
