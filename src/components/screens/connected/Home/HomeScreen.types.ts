@@ -6,11 +6,11 @@ import { ConnectedStackParamsList } from "../../../navigation/ConnectedStack/Con
 import { HomeStackParamsList } from "../../../navigation/HomeStack/HomeStack.types";
 import { RootStackParamsList } from "../../../navigation/RootStack/RootStack.types";
 
-export interface HomeContextProps {
+export interface HomeScreenContextProps {
   timeline?: TimelineFeedSuccessResponseData;
   reelsTray?: ReelsTrayFeedSuccessResponseData;
   isLoading: boolean;
   error: Error | null;
 }
 
-export type HomeProps =  NativeStackScreenProps<HomeStackParamsList, 'Home'>
+export type HomeProps =  NativeStackScreenProps<HomeStackParamsList, 'HomeScreen'>

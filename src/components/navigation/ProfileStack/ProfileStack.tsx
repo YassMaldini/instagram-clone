@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 import Comments from '../../screens/connected/Comments/Comments';
-import Home from '../../screens/connected/Home/Home';
+import Home from '../../screens/connected/Home/HomeScreen';
 import ProfileScreen from '../../screens/connected/ProfileScreen/ProfileScreen';
 import { Navigator, Screen } from './ProfileStack.navigator';
 

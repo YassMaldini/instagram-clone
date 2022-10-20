@@ -10,7 +10,7 @@ import Text from '../../designSystem/Text/Text';
 import ReelsTrayList from '../ReelsTrayList/ReelsTrayList';
 import useReelsTrayFeed from '../../../hooks/feed/useReelsTrayFeed/useReelsTrayFeed';
 import { useMergedStatesFromFetchers } from '../../../hooks/useMergedStatesFromFetchers/useMergedStatesFromFetchers';
-import { HomeContext } from '../../screens/connected/Home/Home.context';
+import { HomeContext } from '../../screens/connected/Home/HomeScreen.context';
 
 const TimelineFeed = () => {
   const { timeline, reelsTray, isLoading, error } = useContext(HomeContext);

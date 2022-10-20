@@ -5,12 +5,12 @@ import TimelineFeed from "../../../commons/TimelineFeed/TimelineFeed";
 import useTimelineFeed from "../../../../hooks/feed/useTimelineFeed/useTimelineFeed";
 import useReelsTrayFeed from "../../../../hooks/feed/useReelsTrayFeed/useReelsTrayFeed";
 import { useMergedStatesFromFetchers } from "../../../../hooks/useMergedStatesFromFetchers/useMergedStatesFromFetchers";
-import { HomeContextProps } from "./Home.types";
-import { HomeContext } from "./Home.context";
+import { HomeContext } from "./HomeScreen.context";
 import { timelineSample } from "../../../../utils/api/samples/timelineSample"
 import { reelsTraySample } from "../../../../utils/api/samples/reelsTraySample"
+import { HomeScreenContextProps } from "./HomeScreen.types";
 
-const Home = () => {
+const HomeScreen = () => {
   // const {
   //   data: timeline,
   //   isLoading: isTimelineLoading,
@@ -28,7 +28,7 @@ const Home = () => {
   //   errors: [timelineError, reelsTrayError]
   // });
 
-  const contextValue = useMemo<HomeContextProps>(
+  const contextValue = useMemo<HomeScreenContextProps>(
     () => ({
       timeline: timelineSample,
       reelsTray: reelsTraySample,
@@ -57,4 +57,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeScreen

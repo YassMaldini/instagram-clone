@@ -1,5 +1,5 @@
 import { Navigator, Screen } from './ConnectedBottomTab.navigator';
-import Home from '../../screens/connected/Home/Home';
+import Home from '../../screens/connected/Home/HomeScreen';
 import Text from '../../designSystem/Text/Text';
 import { SvgIcon } from '../../designSystem/SvgIcon/SvgIcon';
 import HomeIcon from '../../../../assets/vectors/home.svg';
@@ -11,13 +11,13 @@ import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../../utils/theme/theme';
 import HomeStack from '../HomeStack/HomeStack';
 import Image from '../../designSystem/Image/Image';
-import SearchStack from '../SearchStack/SearchStack';
 import ReelsScreen from '../../screens/connected/ReelsScreen/ReelsScreen';
-import ShopScreen from '../../screens/connected/ShopScreen/ShopScreen';
 import { useSelector } from 'react-redux';
 import { profileSelector } from '../../../store/authentication/authenticationReducerSelectors';
 import ProfileStack from '../ProfileStack/ProfileStack';
 import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
+import SearchStack from '../SearchStack/SearchStack';
+import ShopScreen from '../../screens/connected/ShopScreen/ShopScreen';
 
 const ConnectedBottomTab = () => {
   const theme = useTheme<Theme>();

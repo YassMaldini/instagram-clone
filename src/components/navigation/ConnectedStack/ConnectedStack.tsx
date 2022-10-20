@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import Home from '../../screens/connected/Home/Home';
+import Home from '../../screens/connected/Home/HomeScreen';
 import ConnectedBottomTab from '../ConnectedBottomTab/ConnectedBottomTab';
 import { Navigator, Screen } from './ConnectedStack.navigator';
 

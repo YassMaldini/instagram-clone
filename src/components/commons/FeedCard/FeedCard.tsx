@@ -21,7 +21,7 @@ import FeedCardMedia from "./FeedCardMedia/FeedCardMedia"
 import { FeedCardContext } from "./FeedCard.context"
 import moment from "moment"
 import { useNavigation } from "@react-navigation/native"
-import { HomeProps } from "../../screens/connected/Home/Home.types"
+import { HomeProps } from "../../screens/connected/Home/HomeScreen.types"
 
 const FeedCard = (timelineFeedItem: FeedCardProps) => {
   const { navigate } = useNavigation<HomeProps['navigation']>();
