@@ -1,3 +1,3 @@
 import { BottomSheetModalProps } from '@gorhom/bottom-sheet';
 
-export interface BottomModalProps extends BottomSheetModalProps {}
+export type BottomModalProps = BottomSheetModalProps;

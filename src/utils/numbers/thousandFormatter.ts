@@ -1,7 +1,7 @@
 const thousandFormatter = (receivedNumber: number) => {
   const number = receivedNumber.toString();
   const THOUSAND_FORMATTER = new RegExp(/\B(?=(\d{3})+(?!\d))/g);
-  if (!Boolean(number)) {
+  if (!number) {
     return;
   }
   const numberSplitter = '.';
