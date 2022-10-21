@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistStore, persistReducer } from 'redux-persist';
-import { configureStore as reduxConfigureStore } from '@reduxjs/toolkit';
 import { applyMiddleware, createStore } from 'redux';
 import combinedReducer from './combinedReducer';
 import { ConfigureStore } from './configureStore.types';

@@ -1,7 +1,5 @@
 import { Platform } from 'react-native';
-import Comments from '../../screens/connected/Comments/Comments';
 import ExploreScreen from '../../screens/connected/ExploreScreen/ExploreScreen';
-import Home from '../../screens/connected/Home/HomeScreen';
 import SearchScreen from '../../screens/connected/SearchScreen/SearchScreen';
 import { Navigator, Screen } from './SearchStack.navigator';
 

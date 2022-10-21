@@ -1,17 +1,10 @@
 import Box from '../../designSystem/Box/Box';
 import Image from '../../designSystem/Image/Image';
 import CrossIcon from '../../../../assets/images/fb_ic_cross_filled_12.png';
-import { useSelector } from 'react-redux';
-import { profileSelector } from '../../../store/authentication/authenticationReducerSelectors';
-import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
 import { Dimensions } from 'react-native';
 import Text from '../../designSystem/Text/Text';
 import Button from '../../designSystem/Button/Button';
-import {
-  DiscoverFeedResponseRootObject,
-  DiscoverFeedResponseSuggestionsItem,
-  DiscoverFeedResponseUser,
-} from '../../../types/api/endpoints/feed/discover.feed.types';
+import { DiscoverFeedResponseSuggestionsItem } from '../../../types/api/endpoints/feed/discover.feed.types';
 
 const SuggestedUserCard = (suggestion: DiscoverFeedResponseSuggestionsItem) => {
   const { user, social_context } = suggestion;

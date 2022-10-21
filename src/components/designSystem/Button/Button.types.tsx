@@ -1,7 +1,6 @@
 import {
   BackgroundColorProps,
   BorderProps,
-  ColorProps,
   LayoutProps,
   OpacityProps,
   SpacingProps,

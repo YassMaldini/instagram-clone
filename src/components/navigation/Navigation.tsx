@@ -4,7 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useMemo } from 'react';
 import { Theme } from '../../utils/theme/theme';
 import RootStack from './RootStack/RootStack';
-import { SafeAreaView } from 'react-native';
 
 const Navigation = (): JSX.Element => {
   const theme = useTheme<Theme>();

@@ -1,5 +1,3 @@
-import { useCallback, useState } from 'react';
-import { NativeSyntheticEvent, TextLayoutEventData } from 'react-native';
 import { MediaCommentsFeedResponseCaption } from '../../../../../../types/api/endpoints/media/comments.media.types';
 import Box from '../../../../../designSystem/Box/Box';
 import Image from '../../../../../designSystem/Image/Image';

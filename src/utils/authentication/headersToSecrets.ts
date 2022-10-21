@@ -1,5 +1,3 @@
-import { CookieJar } from 'request';
-import * as Constants from 'instagram-private-api/dist/core/constants';
 import { HEADERS } from 'apisauce';
 import { Secrets } from '../../types/models/authentication/secrets.types';
 
@@ -33,9 +31,9 @@ export const getCookie = ({
   cookies: string;
   cookieName: string;
 }): string => {
-  let cookie: any = {};
+  const cookie: any = {};
   cookies.split(',').forEach((el: string) => {
-    let [key, value] = el.split('=');
+    const [key, value] = el.split('=');
     cookie[key.trim()] = value.split(';')[0];
   });
   return cookie[cookieName];

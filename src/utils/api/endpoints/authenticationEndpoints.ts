@@ -1,11 +1,10 @@
-import api, { authenticationApi } from '../api';
+import { authenticationApi } from '../api';
 import {
   SignInErrorResponseData,
   SignInRequestData,
   SignInSuccessResponseData,
 } from '../../../types/api/endpoints/authentication/signIn.types';
 import { StaticPostEndpoints } from '../../../types/api/endpoints/staticEndpoints';
-import generateDevice from '../../authentication/generateDevice/generateDevice';
 
 const AUTHENTICATION_ENDPOINTS = Object.freeze({
   QeSync: () =>

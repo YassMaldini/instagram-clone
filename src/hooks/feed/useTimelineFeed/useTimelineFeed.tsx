@@ -8,7 +8,6 @@ import {
 import { TimelineFeedSuccessResponseData } from '../../../types/api/endpoints/feed/timeline.feed.types';
 import { Secrets } from '../../../types/models/authentication/secrets.types';
 import { Device } from '../../../types/models/device/device.types';
-import api from '../../../utils/api/api';
 import { queryTimelineFeed } from './useTimelineFeed.actions';
 
 export const USE_TIMELINE_FEED_QUERY_KEY = 'USE_TIMELINE_FEED';

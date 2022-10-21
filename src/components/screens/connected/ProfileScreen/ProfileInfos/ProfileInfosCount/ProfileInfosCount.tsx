@@ -1,4 +1,3 @@
-import Box from '../../../../../designSystem/Box/Box';
 import Pressable from '../../../../../designSystem/Pressable/Pressable';
 import Text from '../../../../../designSystem/Text/Text';
 import { ProfileInfosCountProps } from './ProfileInfosCount.types';

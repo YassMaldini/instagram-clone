@@ -1,30 +1,22 @@
 import { ApiResponse } from 'apisauce';
-import { APP_VERSION_CODE, BLOKS_VERSION_ID } from 'instagram-private-api/dist/core/constants';
+import { BLOKS_VERSION_ID } from 'instagram-private-api/dist/core/constants';
 import { random } from 'lodash';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useQueryClient } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { signOut } from '../../store/authentication/authenticationActions/authenticationActions';
 import {
   deviceSelector,
-  profileSelector,
   secretsSelector,
 } from '../../store/authentication/authenticationReducerSelectors';
-import { CurrentUserSuccessResponseData } from '../../types/api/endpoints/accounts/currentuser.types';
-import { Device } from '../../types/models/device/device.types';
 import api, { authenticationApi } from '../../utils/api/api';
-import {
-  HEADERS_TO_SECRETS_KEYS,
-  transformSecretsToHeaders,
-} from '../../utils/authentication/headersToSecrets';
 
 const PREFIX = '[useConfigureApi]';
 
 export const useConfigureApi = () => {
   const secrets = useSelector(secretsSelector);
   const device = useSelector(deviceSelector);
-  const profile = useSelector(profileSelector) as CurrentUserSuccessResponseData;
 
   const queryClient = useQueryClient();
   const dispatch = useDispatch();
@@ -32,16 +24,11 @@ export const useConfigureApi = () => {
   const language = 'fr_FR';
   const capabilitiesHeader = '3brTvwE=';
 
-  // console.log('headers', headers)
-
   const monitor = useCallback(
     (response: ApiResponse<any, any>) => {
       if (response.status === 403) {
         console.log(PREFIX, 'Detected 403 status code... Request url was:', response.config?.url);
         signOut(queryClient)(dispatch);
-        // (async () => {
-        //     await queryClient.invalidateQueries(USE_VALIDATE_TOKEN_QUERY_KEY);
-        // })();
       }
     },
     [queryClient]
@@ -81,14 +68,11 @@ export const useConfigureApi = () => {
         'X-Pigeon-Session-Id': secrets.pigeonSessionId,
         'X-Pigeon-Rawclienttime': (Date.now() / 1000).toFixed(3),
         'X-Ig-Bandwidth-Speed-Kbps': `${random(1000, 3700)}kbps`,
-        // 'X-Ig-Bandwidth-Totalbytes-B': '420057',
-        // 'X-Ig-Bandwidth-Totaltime-Ms': '447',
         'X-Ig-App-Startup-Country': 'unknown',
         'X-Bloks-Version-Id': BLOKS_VERSION_ID,
         'X-Ig-Www-Claim': secrets.igWWWClaim,
         'X-Bloks-Is-Layout-Rtl': 'false',
         'X-Ig-Device-Id': device.uuid,
-        // 'X-Ig-Family-Device-Id': 'd5a71ef2-a01b-4786-88e4-0dceb19d8418',
         'X-Ig-Android-Id': device.deviceId,
         'X-Ig-Timezone-Offset': '7200',
         'X-Ig-Nav-Chain': 'MainFeedFragment:feed_timeline:1:cold_start::',
@@ -122,8 +106,6 @@ export const useConfigureApi = () => {
       });
     }
   }, [secrets, device]);
-
-  // api.setHeaders({...headers as HEADERS})
 
   return api;
 };

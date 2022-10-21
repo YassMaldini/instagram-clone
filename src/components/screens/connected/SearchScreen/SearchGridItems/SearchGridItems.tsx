@@ -1,13 +1,9 @@
-import { Dimensions, ScrollView } from 'react-native';
 import Box from '../../../../designSystem/Box/Box';
-import FeedGridDoubleItem from '../../../../commons/FeedGridDoubleItem/FeedGridDoubleItem';
-import FeedGridSimpleItem from '../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import SearchGridOneByTwoRight from './SearchGridOneByTwoRight/SearchGridOneByTwoRight';
 import SearchGridOneByTwoLeft from './SearchGridOneByTwoLeft/SearchGridOneByTwoLeft';
 import SearchGridRow from './SearchGridRow/SearchGridRow';
 import { FlashList } from '@shopify/flash-list';
 import { topicalExploreSample } from '../../../../../utils/api/samples/topicalExploreSample';
-import Text from '../../../../designSystem/Text/Text';
 
 const SearchGridItems = () => {
   return (

@@ -1,6 +1,5 @@
 import { backgroundColor, border, createRestyleComponent, layout, spacing } from '@shopify/restyle';
 import { Video as ExpoVideo, AVPlaybackStatusSuccess } from 'expo-av';
-import { Dimensions } from 'react-native';
 import { useRef, useState } from 'react';
 
 import { Theme } from '../../../utils/theme/theme';
@@ -19,15 +18,15 @@ const Video = ({ isPlayable = true, pauseEnabled = true, ...props }: VideoProps)
   const video = useRef<ExpoVideo>(null);
   const [status, setStatus] = useState<AVPlaybackStatusSuccess>();
 
-  const onPress = () => {
-    if (video && video.current) {
-      if (status && status.isPlaying) {
-        video.current.pauseAsync();
-      } else {
-        video.current.playAsync();
-      }
-    }
-  };
+  // const onPress = () => {
+  //   if (video && video.current) {
+  //     if (status && status.isPlaying) {
+  //       video.current.pauseAsync();
+  //     } else {
+  //       video.current.playAsync();
+  //     }
+  //   }
+  // };
 
   const onPressPlay = () => {
     if (video && video.current) video.current.playAsync();

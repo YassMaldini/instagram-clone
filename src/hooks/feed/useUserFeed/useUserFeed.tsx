@@ -1,7 +1,5 @@
 import { useQuery } from 'react-query';
 import { UserFeedResponse } from '../../../types/api/endpoints/feed/user.feed.types';
-import { UsertagsFeedResponseRootObject } from '../../../types/api/endpoints/feed/usertags.feed.types';
-import { UserInfoResponseRootObject } from '../../../types/api/endpoints/users/info.user.types';
 import { queryUserFeed } from './useUserFeed.actions';
 import { UseUserFeedOptions } from './useUserFeed.types';
 

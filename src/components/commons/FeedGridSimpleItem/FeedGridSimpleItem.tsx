@@ -1,18 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { Dimensions } from 'react-native';
-import {
-  TopicalExploreFeedResponseCarouselMediaItem,
-  TopicalExploreFeedResponseMedia,
-} from '../../../types/api/endpoints/feed/topicalDiscover.feed.types';
-import {
-  UserFeedResponseCarouselMediaItem,
-  UserFeedResponseItemsItem,
-} from '../../../types/api/endpoints/feed/user.feed.types';
+import { TopicalExploreFeedResponseMedia } from '../../../types/api/endpoints/feed/topicalDiscover.feed.types';
+import { UserFeedResponseItemsItem } from '../../../types/api/endpoints/feed/user.feed.types';
 import { UsertagsFeedResponseItemsItem } from '../../../types/api/endpoints/feed/usertags.feed.types';
-import Box from '../../designSystem/Box/Box';
 import Image from '../../designSystem/Image/Image';
 import Pressable from '../../designSystem/Pressable/Pressable';
-import { PressableProps } from '../../designSystem/Pressable/Pressable.types';
 import { SearchScreenProps } from '../../screens/connected/SearchScreen/SearchScreen.types';
 
 const FeedGridSimpleItem = (

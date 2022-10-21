@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-import * as _ from 'lodash';
 import { State } from '../../../types/api/core/state.types';
 import { AuthSuccessResponseData } from '../../../types/api/endpoints/endpoints.types';
 import { Secrets } from '../../../types/models/authentication/secrets.types';
@@ -20,15 +19,10 @@ import {
   SIGN_OUT,
 } from './authenticationActions.types';
 import { QueryClient } from 'react-query';
-import {
-  getCookie,
-  transformHeadersToSecrets,
-} from '../../../utils/authentication/headersToSecrets';
+import { transformHeadersToSecrets } from '../../../utils/authentication/headersToSecrets';
 import { HEADERS } from 'apisauce';
 import generateDevice from '../../../utils/authentication/generateDevice/generateDevice';
 import api from '../../../utils/api/api';
-import { random } from 'lodash';
-import { BLOKS_VERSION_ID } from 'instagram-private-api/dist/core/constants';
 
 export const setProfile = (profile: User) => (dispatch: Dispatch) => {
   dispatch<SetProfileAction>({

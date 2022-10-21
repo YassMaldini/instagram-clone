@@ -5,9 +5,6 @@ import FollowerIcon from '../../../../../../assets/vectors/follower.svg';
 import { useState } from 'react';
 import { ProfileContentTab } from './ProfileContent.types';
 import Pressable from '../../../../designSystem/Pressable/Pressable';
-import { userFeedSample } from '../../../../../utils/api/samples/userFeedSample';
-import { FlashList } from '@shopify/flash-list';
-import FeedGridSimpleItem from '../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import ProfileUserFeedTab from './ProfileUserFeedTab/ProfileUserFeedTab';
 import ProfileUsertagsFeedTab from './ProfileUsertagsFeedTab/ProfileUsertagsFeedTab';
 

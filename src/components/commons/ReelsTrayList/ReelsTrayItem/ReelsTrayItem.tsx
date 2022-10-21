@@ -1,5 +1,4 @@
 import Box from '../../../designSystem/Box/Box';
-import ronaldinho from '../../../../../assets/images/ronaldinho.jpg';
 import Image from '../../../designSystem/Image/Image';
 import { ReelsTrayFeedResponseTrayItem } from 'instagram-private-api';
 import Text from '../../../designSystem/Text/Text';

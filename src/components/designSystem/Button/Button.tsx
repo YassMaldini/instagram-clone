@@ -1,7 +1,6 @@
 import {
   backgroundColor,
   border,
-  color,
   composeRestyleFunctions,
   createRestyleComponent,
   layout,
@@ -14,13 +13,7 @@ import { Theme } from '../../../utils/theme/theme';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
 import { ButtonColors, ButtonProps, ButtonSizes, ButtonVariants } from './Button.types';
-import {
-  BackgroundColorProps,
-  ColorProps,
-  LayoutProps,
-  OpacityProps,
-  SpacingProps,
-} from '@shopify/restyle';
+import { BackgroundColorProps, LayoutProps, OpacityProps, SpacingProps } from '@shopify/restyle';
 import {
   BUTTON_HORIZONTAL_PADDING,
   BUTTON_VERTICAL_PADDING,
@@ -40,7 +33,6 @@ const Content = ({
   color = ButtonColors.Primary,
   variant = ButtonVariants.Text,
   isBold = true,
-  ...rest
 }: ButtonProps) => {
   const isChildrenString = typeof children === 'string';
 

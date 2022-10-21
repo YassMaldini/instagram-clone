@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import Comments from '../../screens/connected/Comments/Comments';
+import CommentsScreen from '../../screens/connected/CommentsScreen/CommentsScreen';
 import HomeScreen from '../../screens/connected/Home/HomeScreen';
 import { Navigator, Screen } from './HomeStack.navigator';
 
@@ -12,7 +12,7 @@ const HomeStack = () => {
         animation: Platform.OS === 'android' ? 'fade_from_bottom' : 'default',
       }}>
       <Screen name="HomeScreen" component={HomeScreen} />
-      <Screen name="Comments" component={Comments} />
+      <Screen name="CommentsScreen" component={CommentsScreen} />
     </Navigator>
   );
 };

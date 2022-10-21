@@ -3,7 +3,6 @@ import { chainingFeedSample } from '../../../../utils/api/samples/chainingFeedSa
 import ChainingExperienceFeed from '../../../commons/ChainingExperienceFeed/ChainingExperienceFeed';
 import ScreenHeader from '../../../commons/ScreenHeader/ScreenHeader';
 import Box from '../../../designSystem/Box/Box';
-import Text from '../../../designSystem/Text/Text';
 import { ExploreScreenContext } from './ExploreScreen.context';
 import { ExploreScreenContextProps } from './ExploreScreen.types';
 

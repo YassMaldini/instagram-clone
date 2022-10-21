@@ -1,6 +1,4 @@
-import { MediaCommentsFeedResponse } from 'instagram-private-api';
 import { UserInfoResponseRootObject } from '../../../types/api/endpoints/users/info.user.types';
-import MEDIA_ENDPOINTS from '../../../utils/api/endpoints/mediaEndpoints';
 import USERS_ENDPOINTS from '../../../utils/api/endpoints/usersEndpoints';
 import { QueryUserInfosOptions } from './useUserInfos.types';
 

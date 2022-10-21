@@ -1,6 +1,4 @@
 import { Navigator, Screen } from './ConnectedBottomTab.navigator';
-import Home from '../../screens/connected/Home/HomeScreen';
-import Text from '../../designSystem/Text/Text';
 import { SvgIcon } from '../../designSystem/SvgIcon/SvgIcon';
 import HomeIcon from '../../../../assets/vectors/home.svg';
 import SearchIcon12 from '../../../../assets/images/instagram_search_outline_12.png';
@@ -40,9 +38,7 @@ const ConnectedBottomTab = () => {
         component={HomeStack}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: ({ focused }) => (
-            <SvgIcon color="primaryText" width={28} height={28} icon={HomeIcon} />
-          ),
+          tabBarIcon: () => <SvgIcon color="primaryText" width={28} height={28} icon={HomeIcon} />,
         }}
       />
       <Screen

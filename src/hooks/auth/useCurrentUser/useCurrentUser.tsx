@@ -1,12 +1,8 @@
 import { useQuery } from 'react-query';
 import User from '../../../types/models/user/User.types';
 import { queryCurrentUser } from './useCurrentUser.actions';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  profileSelector,
-  secretsSelector,
-} from '../../../store/authentication/authenticationReducerSelectors';
+import { profileSelector } from '../../../store/authentication/authenticationReducerSelectors';
 import { setProfile } from '../../../store/authentication/authenticationActions/authenticationActions';
 import { useDispatch } from 'react-redux';
 import api from '../../../utils/api/api';
@@ -34,7 +30,7 @@ const useCurrentUser = (secrets: Secrets | null) =>
       }
     );
 
-    const { data, ...useQueryResultRest } = useQueryResult;
+    const { data } = useQueryResult;
     const currentUser = data as Exclude<typeof data, undefined>;
 
     console.log('currentUser', currentUser);

@@ -5,7 +5,6 @@ import LikedIcon from '../../../.././../assets/vectors/liked.svg';
 import LikeIcon from '../../../.././../assets/vectors/like.svg';
 import ChatIcon from '../../../.././../assets/vectors/chat.svg';
 import SendIcon from '../../../.././../assets/vectors/send.svg';
-import SaveIcon from '../../../.././../assets/vectors/save.svg';
 import Pressable from '../../../designSystem/Pressable/Pressable';
 import { SvgIcon } from '../../../designSystem/SvgIcon/SvgIcon';
 import { useContext, useState } from 'react';
@@ -16,7 +15,6 @@ import {
 } from '../../../../store/authentication/authenticationReducerSelectors';
 import { Device } from '../../../../types/models/device/device.types';
 import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
-import { FeedCardProps } from '../FeedCard.types';
 import Image from '../../../designSystem/Image/Image';
 import { useMutation } from 'react-query';
 import {
@@ -48,13 +46,13 @@ const FeedCardActions = () => {
   const [isSaved, setIsSaved] = useState(false);
 
   const onLikeMutationSuccess = ({ status }: MediaSuccessResponseData) => {
-    if (!Boolean(status === 'ok')) {
+    if (!(status === 'ok')) {
       setHasLiked(!hasLiked);
     }
   };
 
   const onSaveMutationSuccess = ({ status }: MediaSuccessResponseData) => {
-    if (!Boolean(status === 'ok')) {
+    if (!(status === 'ok')) {
       setIsSaved(!isSaved);
     }
   };

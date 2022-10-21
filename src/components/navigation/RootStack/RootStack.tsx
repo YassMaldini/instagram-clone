@@ -1,14 +1,10 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useIsSignedIn from '../../../hooks/auth/useIsSignedIn/useIsSignedIn';
 import { useConfigureApi } from '../../../hooks/useConfigureApi/useConfigureApi';
 import getRootStackScreens from './getRootStackScreens/getRootStackScreens';
-import * as SplashScreen from 'expo-splash-screen';
-import { isLoaded, loadAsync, useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 import Text from '../../designSystem/Text/Text';
-import { KeyboardAccessoryView } from 'react-native-keyboard-accessory';
-import { View } from 'react-native';
-import TextInput from '../../designSystem/TextInput/TextInput';
 
 const RootStack = () => {
   useConfigureApi();

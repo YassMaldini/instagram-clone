@@ -5,7 +5,6 @@ import {
   ButtonPaddingData,
   ButtonProps,
   ButtonSizes,
-  ButtonVariants,
 } from './Button.types';
 
 export const BUTTONS_COLORS = Object.freeze<ButtonColorsData>({
@@ -52,7 +51,6 @@ export const getButtonBackgroundColor = ({
 export const getButtonTextColor = ({
   disabled,
   color = ButtonColors.Primary,
-  variant,
 }: Pick<ButtonProps, 'disabled' | 'color' | 'variant'>): keyof Theme['colors'] => {
   const colors = BUTTONS_COLORS[color];
   return disabled && colors.disabled ? colors.disabled.text : colors.regular.text;

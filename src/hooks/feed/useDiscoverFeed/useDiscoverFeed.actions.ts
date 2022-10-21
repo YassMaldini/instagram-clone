@@ -1,7 +1,5 @@
 import { DiscoverFeedResponseRootObject } from '../../../types/api/endpoints/feed/discover.feed.types';
-import { Device } from '../../../types/models/device/device.types';
 import DISCOVER_ENDPOINTS from '../../../utils/api/endpoints/discoverEndpoints';
-import FEED_ENDPOINTS from '../../../utils/api/endpoints/feedEndpoints';
 import { QueryDiscoverFeedOptions } from './useDiscoverFeed.types';
 
 const PREFIX = '[queryDiscoverFeed]';

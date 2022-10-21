@@ -1,18 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { Button, TouchableOpacity, View } from 'react-native';
-import { useQueryClient } from 'react-query';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import {
-  setSecrets,
-  signOut,
-} from '../../../../store/authentication/authenticationActions/authenticationActions';
-import {
-  secretsSelector,
-  profileSelector,
-  deviceSelector,
-} from '../../../../store/authentication/authenticationReducerSelectors';
-import api from '../../../../utils/api/api';
+import { TouchableOpacity } from 'react-native';
 import Box from '../../../designSystem/Box/Box';
 import Text from '../../../designSystem/Text/Text';
 import SignInForm from './SignInForm/SignInForm';

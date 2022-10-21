@@ -1,22 +1,18 @@
 import { FlashList } from '@shopify/flash-list';
-import { useContext, useRef } from 'react';
-import { Dimensions, ScrollView } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import { ChainingExperienceFeedResponseFeedItemsItem } from '../../../types/api/endpoints/feed/chainingExperience.feed.types';
+import { useContext } from 'react';
 import Box from '../../designSystem/Box/Box';
-import Text from '../../designSystem/Text/Text';
 import { ExploreScreenContext } from '../../screens/connected/ExploreScreen/ExploreScreen.context';
 import FeedCard from '../FeedCard/FeedCard';
 
 const ChainingExperienceFeed = () => {
   // const carousel = useRef<Carousel<ChainingExperienceFeedResponseFeedItemsItem>>(null);
-  const { chainingExperienceFeed, setActiveIndex } = useContext(ExploreScreenContext);
+  const { chainingExperienceFeed } = useContext(ExploreScreenContext);
 
   return (
     <Box flex={1}>
       <FlashList
         data={chainingExperienceFeed?.items}
-        renderItem={({ item, index }) => (
+        renderItem={({ item }) => (
           <Box flex={1}>
             <FeedCard {...item.media_or_ad} />
           </Box>

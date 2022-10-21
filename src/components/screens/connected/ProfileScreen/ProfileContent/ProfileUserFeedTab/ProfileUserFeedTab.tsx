@@ -3,7 +3,6 @@ import { useCallback, useContext } from 'react';
 import { ActivityIndicator } from 'react-native';
 import useUserFeed from '../../../../../../hooks/feed/useUserFeed/useUserFeed';
 import { UserInfoResponseRootObject } from '../../../../../../types/api/endpoints/users/info.user.types';
-import { userFeedSample } from '../../../../../../utils/api/samples/userFeedSample';
 import FeedGridSimpleItem from '../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import Box from '../../../../../designSystem/Box/Box';
 import Text from '../../../../../designSystem/Text/Text';
@@ -13,7 +12,7 @@ const ProfileUserFeedTab = () => {
   const { userInfos } = useContext(ProfileScreenContext);
   const userPk = (userInfos as UserInfoResponseRootObject).user.pk;
 
-  const { data, isLoading, error } = useUserFeed({ userPk });
+  const { data, isLoading } = useUserFeed({ userPk });
 
   const renderEmptyComponent = useCallback(() => {
     if (isLoading) {

@@ -1,10 +1,6 @@
 import { ErrorResponseData } from '../../../types/api/endpoints/endpoints.types';
 import { TimelineFeedSuccessResponseData } from '../../../types/api/endpoints/feed/timeline.feed.types';
-import {
-  StaticGetEndpoints,
-  StaticPostEndpoints,
-} from '../../../types/api/endpoints/staticEndpoints';
-import { Device } from '../../../types/models/device/device.types';
+import { StaticPostEndpoints } from '../../../types/api/endpoints/staticEndpoints';
 import api from '../api';
 import qs from 'qs';
 import { ReelsTrayFeedSuccessResponseData } from '../../../types/api/endpoints/feed/reelsTray.feed.types';

@@ -1,7 +1,6 @@
 import { ReelsTrayFeedResponseTrayItem } from 'instagram-private-api';
 import Box from '../../designSystem/Box/Box';
 import ReelsTrayItem from './ReelsTrayItem/ReelsTrayItem';
-import { useEffect } from 'react';
 import { ScrollView } from 'react-native';
 
 const ReelsTrayList = ({ reelsTray }: { reelsTray: ReelsTrayFeedResponseTrayItem[] }) => {

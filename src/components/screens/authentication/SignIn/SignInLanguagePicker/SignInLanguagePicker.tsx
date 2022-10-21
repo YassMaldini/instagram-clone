@@ -1,4 +1,4 @@
-import { Alert, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Box from '../../../../designSystem/Box/Box';
 import Text from '../../../../designSystem/Text/Text';
 import i18n from '../../../../../utils/i18n/i18n';

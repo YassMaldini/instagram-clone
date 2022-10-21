@@ -1,10 +1,8 @@
 import { FlashList } from '@shopify/flash-list';
 import { useCallback, useContext } from 'react';
 import { ActivityIndicator } from 'react-native';
-import useUserFeed from '../../../../../../hooks/feed/useUserFeed/useUserFeed';
 import useUsertagsFeed from '../../../../../../hooks/feed/useUsertagsFeed/useUsertagsFeed';
 import { UserInfoResponseRootObject } from '../../../../../../types/api/endpoints/users/info.user.types';
-import { userFeedSample } from '../../../../../../utils/api/samples/userFeedSample';
 import FeedGridSimpleItem from '../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import Box from '../../../../../designSystem/Box/Box';
 import Text from '../../../../../designSystem/Text/Text';
@@ -14,7 +12,7 @@ const ProfileUsertagsFeedTab = () => {
   const { userInfos } = useContext(ProfileScreenContext);
   const userPk = (userInfos as UserInfoResponseRootObject).user.pk;
 
-  const { data, isLoading, error } = useUsertagsFeed({ userPk });
+  const { data, isLoading } = useUsertagsFeed({ userPk });
 
   const renderEmptyComponent = useCallback(() => {
     if (isLoading) {

@@ -1,34 +1,21 @@
 import Box from '../../designSystem/Box/Box';
 import Text from '../../designSystem/Text/Text';
-import ronaldinho from '../../../../assets/images/ronaldinho_post.png';
 import FeedCardHeader from './FeedCardHeader/FeedCardHeader';
 import Pressable from '../../designSystem/Pressable/Pressable';
-import { StyleSheet } from 'react-native';
-import { FeedCardContextProps, FeedCardProps } from './FeedCard.types';
-import {
-  TimelineFeed,
-  TimelineFeedResponseCarouselMediaItem,
-  TimelineFeedResponseMedia_or_ad,
-} from '../../../types/api/endpoints/feed/timeline.feed.types';
-import Image from '../../designSystem/Image/Image';
+import { FeedCardContextProps } from './FeedCard.types';
 import thousandFormatter from '../../../utils/numbers/thousandFormatter';
 import FeedCardCaption from './FeedCardCaption/FeedCardCaption';
-import { Dimensions, Button } from 'react-native';
-import { useRef, useState, LegacyRef, useEffect, memo, useMemo } from 'react';
-import Carousel from 'react-native-snap-carousel';
-import { Image as RNImage } from 'react-native-svg';
-import Video from '../../designSystem/Video/Video';
-import { ResizeMode } from 'expo-av';
+import { useState, useMemo } from 'react';
 import FeedCardActions from './FeedCardActions/FeedCardActions';
-import { Gesture } from 'react-native-gesture-handler';
 import FeedCardMedia from './FeedCardMedia/FeedCardMedia';
 import { FeedCardContext } from './FeedCard.context';
 import moment from 'moment';
 import { useNavigation } from '@react-navigation/native';
-import { HomeProps } from '../../screens/connected/Home/HomeScreen.types';
+import { HomeScreenProps } from '../../screens/connected/Home/HomeScreen.types';
+import { FeedMedia_or_ad } from '../../../types/api/endpoints/feed/media.feed.types';
 
-const FeedCard = (timelineFeedItem: FeedCardProps) => {
-  const { navigate } = useNavigation<HomeProps['navigation']>();
+const FeedCard = (timelineFeedItem: FeedMedia_or_ad) => {
+  const { navigate } = useNavigation<HomeScreenProps['navigation']>();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const contextValue = useMemo<FeedCardContextProps>(

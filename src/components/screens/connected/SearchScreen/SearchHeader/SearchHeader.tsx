@@ -6,8 +6,6 @@ import Box from '../../../../designSystem/Box/Box';
 import Text from '../../../../designSystem/Text/Text';
 import { TextInput as RNTextInput } from 'react-native';
 import TextInput from '../../../../designSystem/TextInput/TextInput';
-import Button from '../../../../designSystem/Button/Button';
-import { ButtonColors } from '../../../../designSystem/Button/Button.types';
 import SearchIcon from '../../../../../../assets/images/instagram_search_outline_16.png';
 import Image from '../../../../designSystem/Image/Image';
 import Pressable from '../../../../designSystem/Pressable/Pressable';

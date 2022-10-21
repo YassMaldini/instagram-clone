@@ -1,7 +1,5 @@
 import { UsertagsFeedResponseRootObject } from '../../../types/api/endpoints/feed/usertags.feed.types';
-import { UserInfoResponseRootObject } from '../../../types/api/endpoints/users/info.user.types';
 import FEED_ENDPOINTS from '../../../utils/api/endpoints/feedEndpoints';
-import USERS_ENDPOINTS from '../../../utils/api/endpoints/usersEndpoints';
 import { QueryUsertagsFeedOptions } from './useUsertagsFeed.types';
 
 const PREFIX = '[queryUsertagsFeed]';

@@ -1,6 +1,5 @@
 import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
 import { CookieJar } from '../../../utils/api/extractCookieFromCookieJar';
-import User from '../../models/user/User.types';
 import { State } from '../core/state.types';
 
 export interface ErrorResponseData {

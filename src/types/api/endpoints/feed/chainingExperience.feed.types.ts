@@ -1,4 +1,3 @@
-import { string } from 'yup';
 import { FeedMedia_or_ad } from './media.feed.types';
 
 export interface ChainingExperienceFeedResponseRootObject {

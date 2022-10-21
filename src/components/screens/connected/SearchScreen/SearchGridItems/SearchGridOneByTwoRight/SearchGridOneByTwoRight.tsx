@@ -1,8 +1,4 @@
 import { Dimensions } from 'react-native';
-import {
-  TopicalExploreFeedResponseLayout_content,
-  TopicalExploreFeedResponseSectionalItemsItem,
-} from '../../../../../../types/api/endpoints/feed/topicalDiscover.feed.types';
 import FeedGridDoubleItem from '../../../../../commons/FeedGridDoubleItem/FeedGridDoubleItem';
 import FeedGridSimpleItem from '../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import Box from '../../../../../designSystem/Box/Box';

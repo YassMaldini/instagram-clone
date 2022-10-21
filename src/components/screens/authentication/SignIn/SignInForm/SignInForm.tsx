@@ -1,8 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTheme } from '@shopify/restyle';
-import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -23,16 +21,19 @@ const SignInForm = () => {
   const theme = useTheme<Theme>();
   const { t } = useTranslation('authentication', { keyPrefix: 'signIn' });
   const dispatch = useDispatch();
+
   const formProps = useForm<SignInFormSchema>({
     resolver: yupResolver(getSignInFormSchema()),
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
+
   const {
     control,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { isValid },
   } = formProps;
+
   const {
     mutate,
     isLoading,
@@ -48,13 +49,11 @@ const SignInForm = () => {
 
   const onSubmit = handleSubmit((data) => mutate({ ...data, dispatch }));
 
-  useEffect(() => console.log('mutationError', mutationError), [mutationError]);
-
   return (
     <Box marginHorizontal="l">
       <Controller
         name="username"
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
+        render={({ field: { onChange, value } }) => (
           <TextInput
             onChangeText={onChange}
             placeholder={t('form.placeholder.username')}
@@ -70,7 +69,7 @@ const SignInForm = () => {
       />
       <Controller
         name="password"
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
+        render={({ field: { onChange, value } }) => (
           <TextInput
             secureTextEntry
             onChangeText={onChange}

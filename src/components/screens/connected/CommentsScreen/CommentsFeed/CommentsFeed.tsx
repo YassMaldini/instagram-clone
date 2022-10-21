@@ -1,6 +1,6 @@
 import { useTheme } from '@shopify/restyle';
 import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   deviceSelector,
@@ -10,8 +10,7 @@ import { Theme } from '../../../../../utils/theme/theme';
 import Box from '../../../../designSystem/Box/Box';
 import { ActivityIndicator, TextInput as RNTextInput } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { CommentsProps } from '../Comments.types';
-import { commentsSample } from '../../../../../utils/api/samples/commentsSample';
+import { CommentsScreenProps } from '../CommentsScreen.types';
 import { FlashList } from '@shopify/flash-list';
 import CommentsItem from './CommentsItem/CommentsItem';
 import CommentsCaption from './CommentsCaption/CommentsCaption';
@@ -26,10 +25,8 @@ import { ButtonColors } from '../../../../designSystem/Button/Button.types';
 import { useMutation } from 'react-query';
 import { commentMutation } from './CommentsFeed.actions';
 import { Device } from '../../../../../types/models/device/device.types';
-import { MediaCommentsFeedResponseCommentsItem } from '../../../../../types/api/endpoints/media/comments.media.types';
 import useComments from '../../../../../hooks/feed/useComments/useComments';
 import { MediaCommentResponseComment } from '../../../../../types/api/endpoints/media/comment.media.types';
-import moment from 'moment';
 
 const CommentsFeed = () => {
   const theme = useTheme<Theme>();
@@ -39,10 +36,10 @@ const CommentsFeed = () => {
   const [value, setValue] = useState('');
   const [newComments, setNewComments] = useState<Partial<MediaCommentResponseComment>[]>([]);
 
-  const { params } = useRoute<CommentsProps['route']>();
+  const { params } = useRoute<CommentsScreenProps['route']>();
   const { mediaId } = params;
 
-  const { data: commentsFeed, isLoading, error } = useComments({ mediaId });
+  const { data: commentsFeed } = useComments({ mediaId });
 
   // useEffect(() => console.log('commentsFeed.comment_likes_enabled', commentsFeed?.comment_likes_enabled), [commentsFeed])
 

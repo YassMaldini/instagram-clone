@@ -4,12 +4,9 @@ import {
   useBottomSheetDynamicSnapPoints,
 } from '@gorhom/bottom-sheet';
 import { useTheme } from '@shopify/restyle';
-import { forwardRef, useCallback, useMemo, useRef } from 'react';
+import { forwardRef, useCallback, useMemo } from 'react';
 import { Theme } from '../../../../utils/theme/theme';
 import Box from '../../../designSystem/Box/Box';
-import Image from '../../../designSystem/Image/Image';
-import Pressable from '../../../designSystem/Pressable/Pressable';
-import Text from '../../../designSystem/Text/Text';
 import FeedCardModalColumnButton from './FeedCardModalColumnButton/FeedCardModalColumnButton';
 
 import ShareImage from '../../../../../assets/images/share.png';

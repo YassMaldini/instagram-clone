@@ -1,8 +1,6 @@
-import { TFunction } from 'react-i18next';
 import { CurrentUserSuccessResponseData } from '../../../types/api/endpoints/accounts/currentuser.types';
 import api from '../../../utils/api/api';
 import ACCOUNT_ENDPOINTS from '../../../utils/api/endpoints/accountEndpoints';
-import AUTHENTICATION_ENDPOINTS from '../../../utils/api/endpoints/authenticationEndpoints';
 
 const PREFIX = '[queryCurrentUser]';
 

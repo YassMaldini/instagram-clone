@@ -1,4 +1,4 @@
 export type HomeStackParamsList = {
   HomeScreen: undefined;
-  Comments: { mediaId: string };
+  CommentsScreen: { mediaId: string };
 };

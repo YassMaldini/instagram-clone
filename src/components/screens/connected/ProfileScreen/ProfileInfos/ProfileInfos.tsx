@@ -1,13 +1,9 @@
-import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
-import { useSelector } from 'react-redux';
-import { profileSelector } from '../../../../../store/authentication/authenticationReducerSelectors';
 import Box from '../../../../designSystem/Box/Box';
 import Image from '../../../../designSystem/Image/Image';
 import Pressable from '../../../../designSystem/Pressable/Pressable';
 import Text from '../../../../designSystem/Text/Text';
 import ProfileInfosCount from './ProfileInfosCount/ProfileInfosCount';
 import AddUserIcon from '../../../../../../assets/images/instagram_user_follow_outline_44.png';
-import { userInfosSample } from '../../../../../utils/api/samples/userInfosSample';
 import { useContext } from 'react';
 import { ProfileScreenContext } from '../ProfileScreen.context';
 import { UserInfoResponseRootObject } from '../../../../../types/api/endpoints/users/info.user.types';

@@ -1,5 +1,4 @@
 import { TimelineFeedSuccessResponseData } from '../../../types/api/endpoints/feed/timeline.feed.types';
-import { Device } from '../../../types/models/device/device.types';
 import FEED_ENDPOINTS from '../../../utils/api/endpoints/feedEndpoints';
 
 const PREFIX = '[queryTimelineFeed]';

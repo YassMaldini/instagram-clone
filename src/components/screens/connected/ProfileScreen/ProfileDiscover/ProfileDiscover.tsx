@@ -1,7 +1,6 @@
 import { FlashList } from '@shopify/flash-list';
-import { ActivityIndicator, ScrollView } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import useDiscoverFeed from '../../../../../hooks/feed/useDiscoverFeed/useDiscoverFeed';
-import { discoverSample } from '../../../../../utils/api/samples/discoverSample';
 import SuggestedUserCard from '../../../../commons/SuggestedUserCard/SuggestedUserCard';
 import Box from '../../../../designSystem/Box/Box';
 import Text from '../../../../designSystem/Text/Text';

@@ -2,12 +2,8 @@ import { useNavigation } from '@react-navigation/native';
 import { ResizeMode } from 'expo-av';
 import { Dimensions } from 'react-native';
 import { TopicalExploreFeedResponseSectionalItemsItem } from '../../../types/api/endpoints/feed/topicalDiscover.feed.types';
-import Box from '../../designSystem/Box/Box';
-import Image from '../../designSystem/Image/Image';
 import Pressable from '../../designSystem/Pressable/Pressable';
-import { PressableProps } from '../../designSystem/Pressable/Pressable.types';
 import Video from '../../designSystem/Video/Video';
-import { ExploreScreenProps } from '../../screens/connected/ExploreScreen/ExploreScreen.types';
 import { SearchScreenProps } from '../../screens/connected/SearchScreen/SearchScreen.types';
 
 const FeedGridDoubleItem = ({

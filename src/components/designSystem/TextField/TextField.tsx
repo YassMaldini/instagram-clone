@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-import { TextInput as RNTextInput } from 'react-native';
 import Box from '../Box/Box';
 import TextInput from '../TextInput/TextInput';
 import { TextFieldProps } from './TextField.types';

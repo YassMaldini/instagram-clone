@@ -2,13 +2,10 @@ import { useMemo } from 'react';
 import HomeHeader from './HomeHeader/HomeHeader';
 import Box from '../../../designSystem/Box/Box';
 import TimelineFeed from '../../../commons/TimelineFeed/TimelineFeed';
-import useTimelineFeed from '../../../../hooks/feed/useTimelineFeed/useTimelineFeed';
-import useReelsTrayFeed from '../../../../hooks/feed/useReelsTrayFeed/useReelsTrayFeed';
-import { useMergedStatesFromFetchers } from '../../../../hooks/useMergedStatesFromFetchers/useMergedStatesFromFetchers';
-import { HomeContext } from './HomeScreen.context';
 import { timelineSample } from '../../../../utils/api/samples/timelineSample';
 import { reelsTraySample } from '../../../../utils/api/samples/reelsTraySample';
 import { HomeScreenContextProps } from './HomeScreen.types';
+import { HomeContext } from './HomeScreen.context';
 
 const HomeScreen = () => {
   // const {

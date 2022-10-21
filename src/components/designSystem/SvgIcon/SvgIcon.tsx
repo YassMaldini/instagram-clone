@@ -12,10 +12,7 @@ import {
   createRestyleComponent,
   ColorProps,
 } from '@shopify/restyle';
-import { FC } from 'react';
-import { SvgProps } from 'react-native-svg';
 import { Theme } from '../../../utils/theme/theme';
-import Box from '../Box/Box';
 import { SvgIconProps } from './SvgIcon.types';
 
 export const DEFAULT_SVG_ICON_SIZE = 24;
@@ -24,10 +21,6 @@ export type RestyleProps = ColorProps<Theme> &
   SpacingProps<Theme> &
   LayoutProps<Theme> &
   OpacityProps<Theme>;
-
-type Props = RestyleProps & {
-  color?: keyof Theme['colors'];
-};
 
 export const SvgIcon = ({
   icon: Icon,

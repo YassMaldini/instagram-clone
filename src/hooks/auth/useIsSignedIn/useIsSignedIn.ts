@@ -7,7 +7,6 @@ import {
   secretsSelector,
 } from '../../../store/authentication/authenticationReducerSelectors';
 import api from '../../../utils/api/api';
-import useCurrentUser from '../useCurrentUser/useCurrentUser';
 
 const useIsSignedIn = () => {
   const secrets = useSelector(secretsSelector);
