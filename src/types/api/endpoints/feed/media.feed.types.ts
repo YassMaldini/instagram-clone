@@ -1,3 +1,9 @@
+import { TopicalExploreFeedResponseMedia } from "./topicalDiscover.feed.types";
+import { UserFeedResponseItemsItem } from "./user.feed.types";
+import { UsertagsFeedResponseItemsItem } from "./usertags.feed.types";
+
+export type FeedMedia = Partial<TopicalExploreFeedResponseMedia | UserFeedResponseItemsItem | UsertagsFeedResponseItemsItem>
+
 export interface FeedMedia_or_ad {
   taken_at: number;
   pk: string | number;

@@ -35,7 +35,7 @@ export interface TopicalExploreFeedResponseChannel {
 export interface TopicalExploreFeedResponseMedia {
   taken_at: number;
   pk: string;
-  id: string;
+  id: number;
   device_timestamp: number | string;
   media_type: number;
   code: string;
@@ -773,7 +773,7 @@ export interface Media {
 }
 
 export interface Item {
-  media: Media;
+  media: TopicalExploreFeedResponseMedia;
 }
 
 export interface Clips {

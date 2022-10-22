@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { ResizeMode } from 'expo-av';
 import { Dimensions } from 'react-native';
-import { TopicalExploreFeedResponseSectionalItemsItem } from '../../../types/api/endpoints/feed/topicalDiscover.feed.types';
+import { TopicalExploreFeedResponseSectionalItemsItem, TopicalExploreFeedResponseVideoVersionsItem } from '../../../types/api/endpoints/feed/topicalDiscover.feed.types';
 import Pressable from '../../designSystem/Pressable/Pressable';
 import Video from '../../designSystem/Video/Video';
 import { SearchScreenProps } from '../../screens/connected/SearchScreen/SearchScreen.types';
@@ -27,14 +27,14 @@ const FeedGridDoubleItem = ({
           height={THIRD * 2 - MARGIN}
           style={{ marginBottom: MARGIN }}
           key={index}
-          onPress={() => navigate('ExploreScreen', { mediaId: media.id })}>
+          onPress={() => navigate('ExploreScreen', { media })}>
           {/* <Image
               source={{ uri: media.image_versions2.candidates[0].url }}
               width={SIZE}
               height={(THIRD * 2) - MARGIN}
             /> */}
           <Video
-            source={{ uri: media.video_versions[0].url }}
+            source={{ uri: (media.video_versions as TopicalExploreFeedResponseVideoVersionsItem[])[0].url }}
             style={{
               width: SIZE,
               height: THIRD * 2 - MARGIN,

@@ -10,7 +10,7 @@ const SearchGridOneByTwoLeft = ({ isFirstItem, sectionalItems }: SearchGridOneBy
   const { layout_content: layoutContent } = sectionalItems;
 
   return (
-    <Box flexDirection="row" justifyContent="space-between">
+    <Box flexDirection="row">
       <FeedGridDoubleItem {...{ isFirstItem, ...sectionalItems }} />
       <Box
         width={THIRD * 2 - MARGIN / 2}

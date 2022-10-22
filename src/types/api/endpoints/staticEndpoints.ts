@@ -7,6 +7,8 @@ export enum StaticPostEndpoints {
 
   // Discover
   Ayml = '/discover/ayml/',
+  TopicalExplore= '/discover/topical_explore/',
+  ChainingExperience = '/discover/chaining_experience_feed/',
 
   // Feed
   ReelsTrayFeed = '/feed/reels_tray/',

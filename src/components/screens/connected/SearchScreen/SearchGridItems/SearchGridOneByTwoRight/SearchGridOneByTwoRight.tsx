@@ -10,12 +10,13 @@ const SearchGridOneByTwoRight = ({ isFirstItem, sectionalItems }: SearchGridOneB
   const { layout_content: layoutContent } = sectionalItems;
 
   return (
-    <Box flexDirection="row" justifyContent="space-between">
+    <Box flexDirection="row">
       <Box
         width={THIRD * 2 - MARGIN / 2}
         flexDirection="row"
         justifyContent="space-between"
-        flexWrap="wrap">
+        flexWrap="wrap"
+      >
         {layoutContent.fill_items?.map(({ media }) => (
           <FeedGridSimpleItem {...media} key={media.pk} />
         ))}

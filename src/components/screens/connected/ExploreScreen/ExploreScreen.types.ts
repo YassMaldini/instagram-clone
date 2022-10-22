@@ -6,7 +6,7 @@ import { SearchStackParamsList } from '../../../navigation/SearchStack/SearchSta
 export type ExploreScreenProps = NativeStackScreenProps<SearchStackParamsList, 'ExploreScreen'>;
 
 export interface ExploreScreenContextProps {
-  chainingExperienceFeed: ChainingExperienceFeedResponseRootObject;
+  chainingExperienceFeed?: ChainingExperienceFeedResponseRootObject;
   activeIndex: number;
   setActiveIndex: Dispatch<SetStateAction<number>>;
 }
