@@ -1,4 +1,4 @@
-import { Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Box from '../../../../designSystem/Box/Box';
 import Text from '../../../../designSystem/Text/Text';
 import i18n from '../../../../../utils/i18n/i18n';
@@ -15,6 +15,8 @@ const SignInLanguagePicker = () => {
   const theme = useTheme<Theme>();
   const { t } = useTranslation('authentication', { keyPrefix: 'languagePicker' });
   const [modalVisible, setModalVisible] = useState(false);
+
+  const WINDOW_HEIGHT = Dimensions.get('window').height
 
   const LanguagesByKey = Object.entries(LANGUAGES).reduce(
     (acc, [language, languageKey]) => ({
@@ -33,6 +35,8 @@ const SignInLanguagePicker = () => {
     Object.entries(LANGUAGES).map((l) => console.log(l));
   });
 
+  // xcodebuild -workspace ios/instagramclone.xcworkspace -scheme instagramclone -configuration Release -sdk iphonesimulator -derivedDataPath ios/build
+
   return (
     <Box>
       <TouchableOpacity
@@ -48,7 +52,14 @@ const SignInLanguagePicker = () => {
       </TouchableOpacity>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <TouchableWithoutFeedback onPressOut={() => setModalVisible(false)}>
-          <Box flex={1} paddingHorizontal="xl" paddingVertical="s">
+          <Box 
+            height={WINDOW_HEIGHT * 0.8} 
+            paddingHorizontal="xl" 
+            paddingVertical="s"
+            style={{
+              marginVertical: WINDOW_HEIGHT * 0.1
+            }}
+          >
             <TouchableWithoutFeedback>
               <Box flex={1} backgroundColor={'highlightBackground'}>
                 <Box
