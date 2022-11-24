@@ -1,10 +1,10 @@
 import { FlashList } from '@shopify/flash-list';
 import { useCallback, useContext } from 'react';
-import { ActivityIndicator } from 'react-native';
 import useUserFeed from '../../../../../../hooks/feed/useUserFeed/useUserFeed';
 import { UserInfoResponseRootObject } from '../../../../../../types/api/endpoints/users/info.user.types';
 import FeedGridSimpleItem from '../../../../../commons/FeedGridSimpleItem/FeedGridSimpleItem';
 import Box from '../../../../../designSystem/Box/Box';
+import Loading from '../../../../../designSystem/Loading/Loading';
 import Text from '../../../../../designSystem/Text/Text';
 import { ProfileScreenContext } from '../../ProfileScreen.context';
 
@@ -17,9 +17,7 @@ const ProfileUserFeedTab = () => {
   const renderEmptyComponent = useCallback(() => {
     if (isLoading) {
       return (
-        <Box margin="l" justifyContent="center">
-          <ActivityIndicator size="large" />
-        </Box>
+        <Loading />
       );
     }
     return (

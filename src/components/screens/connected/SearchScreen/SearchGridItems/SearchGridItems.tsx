@@ -3,10 +3,8 @@ import SearchGridOneByTwoRight from './SearchGridOneByTwoRight/SearchGridOneByTw
 import SearchGridOneByTwoLeft from './SearchGridOneByTwoLeft/SearchGridOneByTwoLeft';
 import SearchGridRow from './SearchGridRow/SearchGridRow';
 import { FlashList } from '@shopify/flash-list';
-import { topicalExploreSample } from '../../../../../utils/api/samples/topicalExploreSample';
 import useTopicalExploreFeed from '../../../../../hooks/feed/useTopicalExploreFeed/useTopicalExploreFeed';
-import { ActivityIndicator } from 'react-native';
-import { useEffect } from 'react';
+import Loading from '../../../../designSystem/Loading/Loading';
 
 const SearchGridItems = () => {
   const {
@@ -15,7 +13,7 @@ const SearchGridItems = () => {
   } = useTopicalExploreFeed()
 
   if (isLoading) {
-    return <ActivityIndicator size="large" />
+    return <Loading />
   }
 
   // useEffect(() => {

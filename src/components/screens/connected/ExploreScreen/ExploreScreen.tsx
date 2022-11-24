@@ -1,12 +1,10 @@
 import { useRoute } from '@react-navigation/native';
-import { isLoading } from 'expo-font';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
 import useChainingExperienceFeed from '../../../../hooks/feed/useChainingExperienceFeed/useChainingExperienceFeed';
-import { chainingFeedSample } from '../../../../utils/api/samples/chainingFeedSample';
 import ChainingExperienceFeed from '../../../commons/ChainingExperienceFeed/ChainingExperienceFeed';
 import ScreenHeader from '../../../commons/ScreenHeader/ScreenHeader';
 import Box from '../../../designSystem/Box/Box';
+import Loading from '../../../designSystem/Loading/Loading';
 import { ExploreScreenContext } from './ExploreScreen.context';
 import { ExploreScreenProps, ExploreScreenContextProps } from './ExploreScreen.types';
 
@@ -26,7 +24,7 @@ const ExploreScreen = () => {
   );
 
   if (isLoading) {
-    return <ActivityIndicator size="large" />
+    return <Loading />
   }
 
   return (

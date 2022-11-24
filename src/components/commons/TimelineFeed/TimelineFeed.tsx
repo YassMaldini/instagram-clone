@@ -6,6 +6,7 @@ import { FlashList } from '@shopify/flash-list';
 import Text from '../../designSystem/Text/Text';
 import ReelsTrayList from '../ReelsTrayList/ReelsTrayList';
 import { HomeContext } from '../../screens/connected/Home/HomeScreen.context';
+import Loading from '../../designSystem/Loading/Loading';
 
 const TimelineFeed = () => {
   const { timeline, reelsTray, isLoading } = useContext(HomeContext);
@@ -18,7 +19,9 @@ const TimelineFeed = () => {
         </Box>
       );
     }
-    return <Text>Nothing...</Text>;
+    return (
+      <Loading />
+    );
   }, [isLoading]);
 
   return (

@@ -8,7 +8,7 @@ import {
 } from '../../../../../store/authentication/authenticationReducerSelectors';
 import { Theme } from '../../../../../utils/theme/theme';
 import Box from '../../../../designSystem/Box/Box';
-import { ActivityIndicator, TextInput as RNTextInput } from 'react-native';
+import { TextInput as RNTextInput } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { CommentsScreenProps } from '../CommentsScreen.types';
 import { FlashList } from '@shopify/flash-list';
@@ -27,6 +27,7 @@ import { commentMutation } from './CommentsFeed.actions';
 import { Device } from '../../../../../types/models/device/device.types';
 import useComments from '../../../../../hooks/feed/useComments/useComments';
 import { MediaCommentResponseComment } from '../../../../../types/api/endpoints/media/comment.media.types';
+import Loading from '../../../../designSystem/Loading/Loading';
 
 const CommentsFeed = () => {
   const theme = useTheme<Theme>();
@@ -65,7 +66,7 @@ const CommentsFeed = () => {
       <FlashList
         data={commentsFeed?.comments}
         renderItem={({ item }) => <CommentsItem commentItem={item} />}
-        ListEmptyComponent={<ActivityIndicator size="large" />}
+        ListEmptyComponent={<Loading />}
         ListHeaderComponent={
           <>
             {commentsFeed?.caption && <CommentsCaption {...commentsFeed.caption} />}

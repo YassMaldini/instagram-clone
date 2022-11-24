@@ -4,7 +4,7 @@ import ProfileDiscover from './ProfileDiscover/ProfileDiscover';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import ProfileInfos from './ProfileInfos/ProfileInfos';
 import ProfileContent from './ProfileContent/ProfileContent';
-import { ActivityIndicator, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import { profileSelector } from '../../../../store/authentication/authenticationReducerSelectors';
 import { AccountRepositoryLoginResponseLogged_in_user } from 'instagram-private-api';
@@ -13,6 +13,7 @@ import { ProfileScreenContextProps, ProfileScreenProps } from './ProfileScreen.t
 import { useMemo, useState } from 'react';
 import { ProfileScreenContext } from './ProfileScreen.context';
 import useUserInfos from '../../../../hooks/feed/useUserInfos/useUserInfos';
+import Loading from '../../../designSystem/Loading/Loading';
 
 const ProfileScreen = () => {
   const { pk: currentUserPk } = useSelector(
@@ -35,7 +36,7 @@ const ProfileScreen = () => {
   );
 
   if (isLoading) {
-    return <ActivityIndicator size="large" />;
+    return <Loading />;
   }
 
   if (error) {
