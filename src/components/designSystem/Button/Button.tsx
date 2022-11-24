@@ -40,8 +40,8 @@ const Content = ({
 
   if (loading) {
     return (
-      <Box paddingVertical="m">
-        <ActivityIndicator size={24} color="#fff" />
+      <Box style={{ paddingVertical: 1 }}>
+        <ActivityIndicator size={14} color="#fff" />
       </Box>
     );
   }
