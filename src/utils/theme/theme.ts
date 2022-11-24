@@ -48,6 +48,7 @@ const getTheme = () =>
     textVariants: {
       defaults: {
         color: 'primaryText',
+        fontFamily: 'Roboto-Regular'
       },
       title: {
         fontWeight: 800,
