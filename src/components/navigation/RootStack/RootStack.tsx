@@ -1,10 +1,10 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useIsSignedIn from '../../../hooks/auth/useIsSignedIn/useIsSignedIn';
 import { useConfigureApi } from '../../../hooks/useConfigureApi/useConfigureApi';
 import getRootStackScreens from './getRootStackScreens/getRootStackScreens';
 import { useFonts } from 'expo-font';
-import Text from '../../designSystem/Text/Text';
+import * as SplashScreen from 'expo-splash-screen';
 
 const RootStack = () => {
   useConfigureApi();
@@ -17,13 +17,19 @@ const RootStack = () => {
     'Font-Spring': require('../../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf'),
   });
 
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   const screens = useMemo(() => getRootStackScreens({ isSignedIn }), [isSignedIn]);
 
   if (!fontsLoaded) {
-    return <Text>Loading for fonts...</Text>;
+    return null;
   }
 
-  return <SafeAreaView style={{ flex: 1 }}>{screens}</SafeAreaView>;
+  return <SafeAreaView style={{ flex: 1 }} onLayout={onLayoutRootView}>{screens}</SafeAreaView>;
 };
 
 export default RootStack;
