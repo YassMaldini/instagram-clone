@@ -20,7 +20,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ios.instagramclone"
+      "bundleIdentifier": "com.ios.instagramclone",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
