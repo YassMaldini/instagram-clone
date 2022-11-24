@@ -2,7 +2,8 @@
   "expo": {
     "name": "instagram-clone",
     "slug": "instagram-clone",
-    "version": "1.0.0",
+    "version": "1.1.0",
+    "runtimeVersion": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -19,14 +20,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yass66s.instagramclone"
+      "bundleIdentifier": "com.ios.instagramclone"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yass66s.instagramclone"
+      "package": "com.and.instagramclone"
     },
     "web": {
       "favicon": "./assets/favicon.png"
