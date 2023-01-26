@@ -14,7 +14,7 @@
     A clone of the Instagram app using the same API as the real app.
     <br />
     <br />
-    <a href=""><strong>Online Demo »</strong></a>
+    <a href="https://appetize.io/app/gbibjp27wkyu44jv44ksubgjc4?device=iphone12&osVersion=16.0&scale=75"><strong>Online Demo »</strong></a>
     <br />
     <div align="center">
       <img src="https://miro.medium.com/max/800/1*yWUgGAQuiROzilwG_tEU2Q.png" alt="rn_ts" width="85" height="50">
