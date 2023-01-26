@@ -19,6 +19,8 @@
     <div align="center">
       <img src="https://miro.medium.com/max/800/1*yWUgGAQuiROzilwG_tEU2Q.png" alt="rn_ts" width="85" height="50">
     </div>
+    <br />
+    <img src=".github/examples/instaclone-demo.gif" />
   </p>
 </div>
 
