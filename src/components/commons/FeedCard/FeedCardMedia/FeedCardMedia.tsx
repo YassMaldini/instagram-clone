@@ -3,14 +3,31 @@ import { useContext, useRef } from 'react';
 import { Dimensions } from 'react-native';
 import Video from '../../../designSystem/Video/Video';
 import { ResizeMode } from 'expo-av';
-import Carousel from 'react-native-snap-carousel';
+import { useSharedValue } from "react-native-reanimated";
+import Carousel, {
+  ICarouselInstance,
+  Pagination,
+} from "react-native-reanimated-carousel";
 import Box from '../../../designSystem/Box/Box';
 import { FeedCardContext } from '../FeedCard.context';
 import { FeedResponseCarouselMediaItem } from '../../../../types/api/endpoints/feed/media.feed.types';
 
 const FeedCardMedia = () => {
-  const carousel = useRef<Carousel<FeedResponseCarouselMediaItem>>(null);
+  const ref = useRef<ICarouselInstance>(null);
+  const progress = useSharedValue<number>(0);
+
   const { timelineFeedItem, setActiveIndex } = useContext(FeedCardContext);
+
+  // const onPressPagination = (index: number) => {
+  //   ref.current?.scrollTo({
+  //     /**
+  //      * Calculate the difference between the current index and the target index
+  //      * to ensure that the carousel scrolls to the nearest index
+  //      */
+  //     count: index - progress.value,
+  //     animated: true,
+  //   });
+  // };
 
   if (timelineFeedItem.media_type === 1 && timelineFeedItem.image_versions2) {
     return (
@@ -49,12 +66,12 @@ const FeedCardMedia = () => {
   if (timelineFeedItem.media_type === 8 && timelineFeedItem.carousel_media) {
     return (
       <Carousel
-        layout={'default'}
-        ref={carousel}
+        ref={ref}
+        width={Dimensions.get('window').width}
+        height={Dimensions.get('window').width / 2}
         data={timelineFeedItem.carousel_media}
-        sliderWidth={Dimensions.get('window').width}
-        itemWidth={Dimensions.get('window').width}
-        activeSlideOffset={100}
+        onProgressChange={progress}
+        onSnapToItem={(index) => setActiveIndex(index)}
         renderItem={({ item }) => {
           if (item.media_type === 1 && item.image_versions2) {
             return (
@@ -89,7 +106,6 @@ const FeedCardMedia = () => {
             return <Box />;
           }
         }}
-        onSnapToItem={(index) => setActiveIndex(index)}
       />
     );
   }

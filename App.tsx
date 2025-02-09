@@ -8,7 +8,7 @@ import getTheme from './src/utils/theme/theme';
 import { StatusBar } from 'expo-status-bar';
 
 import './src/utils/i18n/i18n';
-import AppLoader from './src/components/commons/AppLoader/AppLoader';
+import { Fragment } from 'react';
 
 const App = () => {
   const { store, persistor } = configureStore();
@@ -17,20 +17,18 @@ const App = () => {
   const theme = getTheme();
 
   return (
-    <>
+    <Fragment>
       <StatusBar style="inverted" />
-      <AppLoader>
-        <ThemeProvider {...{ theme }}>
-          <StoreProvider {...{ store }}>
-            <PersistGate {...{ persistor }}>
-              <QueryClientProvider client={queryClient}>
-                <Navigation />
-              </QueryClientProvider>
-            </PersistGate>
-          </StoreProvider>
-        </ThemeProvider>
-      </AppLoader>
-    </>
+      <ThemeProvider {...{ theme }}>
+        <StoreProvider {...{ store }}>
+          <PersistGate {...{ persistor }}>
+            <QueryClientProvider client={queryClient}>
+              <Navigation />
+            </QueryClientProvider>
+          </PersistGate>
+        </StoreProvider>
+      </ThemeProvider>
+    </Fragment>
   );
 };
 

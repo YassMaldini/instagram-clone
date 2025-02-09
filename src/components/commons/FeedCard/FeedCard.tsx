@@ -31,7 +31,7 @@ const FeedCard = (timelineFeedItem: FeedMedia_or_ad) => {
         <FeedCardActions />
         {timelineFeedItem.caption && <FeedCardCaption />}
         {timelineFeedItem.comment_count > 0 && (
-          <Pressable onPress={() => navigate('Comments', { mediaId: timelineFeedItem.id })}>
+          <Pressable onPress={() => navigate('CommentsScreen', { mediaId: timelineFeedItem.id })}>
             <Text marginLeft="m" color="secondaryText">
               Voir les {thousandFormatter(timelineFeedItem.comment_count)} commentaires
             </Text>
