@@ -15,8 +15,6 @@
     A clone of the Instagram app using the same API as the real app.
     <br />
     <br />
-    <a href="https://appetize.io/app/gbibjp27wkyu44jv44ksubgjc4?device=iphone12&osVersion=16.0&scale=75"><strong>Online Demo »</strong></a>
-    <br />
     <div align="center">
       <img src="https://miro.medium.com/max/800/1*yWUgGAQuiROzilwG_tEU2Q.png" alt="rn_ts" width="85" height="50">
     </div>
@@ -50,7 +48,7 @@ Follow these steps to set up the project locally.
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   yarn
    ```
 3. Create a development build locally
    ```sh
@@ -61,11 +59,11 @@ Follow these steps to set up the project locally.
 
 - Development build
   ```sh
-  eas build --platform android|ios|all --profile development
+  npx eas build --platform android|ios|all --profile development
   ```
 - Production build
   ```sh
-  eas build --platform android|ios|all --profile production
+  npx eas build --platform android|ios|all --profile production
   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
